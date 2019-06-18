@@ -1,0 +1,487 @@
+<body class="loadingRequest overlay-loading">
+    <div class="spinner">
+        <img src="../assets/frontend/img/loading-ajax.gif" alt="loading">
+    </div>
+    <!--/.contents/.global-head -->
+    <div class="contents visual">
+        <div class="contents__inner">
+            <div class="visual__text visual__style">
+                <h1 class="visual__text--maintitle">
+                	Loading - Visulal text
+                </h1>
+            </div>
+            <div class="visual__search search">
+                <form class="search__form">
+                    <input type="search" class="search__input--text" placeholder="Tu khoa">
+                    <button class="contents__button--small btn--orange">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <section class="contents search-box">
+        <div class="search-box__header">
+            <h2 class="search-box__title">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                Search box
+            </h2>
+        </div>
+        <div class="search-box__body">
+            <div class="contents__inner">
+                <form class="search-form">
+                    <div class="search-form__wrap">
+                        <div class="search-form__col">
+                            <div class="search-form__header">
+                                <h3 class="search-form__title search-form__title--01">
+                                    <i class="fa fa-bus" aria-hidden="true"></i>交通手段
+                                </h3>
+                            </div>
+                            <div class="search-form__body">
+                                <div class="form-check">
+                                    <label class="form-check__label">
+                                        <input type="checkbox" class="form-check__checkbox">
+                                        朝発バス
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check__label">
+                                        <input type="checkbox" class="form-check__checkbox">
+                                        夜発バス
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check__label">
+                                        <input type="checkbox" class="form-check__checkbox">
+                                        新幹線
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check__label">
+                                        <input type="checkbox" class="form-check__checkbox">
+                                        マイカー
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check__label">
+                                        <input type="checkbox" class="form-check__checkbox">
+                                        交通手段未選択
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-form__col">
+                            <div class="search-form__header">
+                                <h3 class="search-form__title search-form__title--02">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>出発地
+                                </h3>
+                            </div>
+                            <div class="search-form__body">
+                                <div class="custom-form">
+                                    <select name="departure01" id="" class="custom-form__select">
+                                        <option value="" selected="">全ての出発地</option>
+                                        <optgroup label="主要都市">
+                                        </optgroup>
+                                        <optgroup label="北海道・東北">
+                                        </optgroup>
+                                        <optgroup label="関東">
+                                        </optgroup>
+                                        <optgroup label="中部">
+                                        </optgroup>
+                                        <optgroup label="近畿">
+                                        </optgroup>
+                                        <optgroup label="中国・四国">
+                                        </optgroup>
+                                        <optgroup label="九州">
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="custom-form">
+                                    <select name="departure02" id="" class="custom-form__select">
+                                        <option value="" selected="">全ての出発地</option>
+                                        <optgroup label="主要都市">
+                                        </optgroup>
+                                        <optgroup label="北海道・東北">
+                                        </optgroup>
+                                        <optgroup label="関東">
+                                        </optgroup>
+                                        <optgroup label="中部">
+                                        </optgroup>
+                                        <optgroup label="近畿">
+                                        </optgroup>
+                                        <optgroup label="中国・四国">
+                                        </optgroup>
+                                        <optgroup label="九州">
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-form__col">
+                            <div class="search-form__header">
+                                <h3 class="search-form__title search-form__title--03">
+                                    <i class="fa fa-hospital-o" aria-hidden="true"></i>宿泊先
+                                </h3>
+                            </div>
+                            <div class="search-form__body">
+                                <div class="custom-form">
+                                    <select name="hotel01" class="custom-form__select">
+                                        <option value="" selected="">全ての出発地</option>
+                                        <optgroup label="主要都市">
+                                        </optgroup>
+                                        <optgroup label="北海道・東北">
+                                        </optgroup>
+                                        <optgroup label="関東">
+                                        </optgroup>
+                                        <optgroup label="中部">
+                                        </optgroup>
+                                        <optgroup label="近畿">
+                                        </optgroup>
+                                        <optgroup label="中国・四国">
+                                        </optgroup>
+                                        <optgroup label="九州">
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <p class="custom-form__label--small">1室の人数</p>
+                                <div class="custom-form">
+                                    <select name="hotel02"  class="custom-form__select">
+                                        <option value="7" selected="">7人以上おまかせ</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-form__col">
+                            <div class="search-form__header">
+                                <h3 class="search-form__title search-form__title--04">
+                                    <div class="icon-ski"></div>スキー場所
+                                </h3>
+                            </div>
+                            <div class="search-form__body">
+                                <div class="custom-form">
+                                    <select name="place01" id="" class="custom-form__select">
+                                        <option value="" selected="">都道府県</option>
+                                        <optgroup label="主要都市">
+                                        </optgroup>
+                                        <optgroup label="北海道・東北">
+                                        </optgroup>
+                                        <optgroup label="関東">
+                                        </optgroup>
+                                        <optgroup label="中部">
+                                        </optgroup>
+                                        <optgroup label="近畿">
+                                        </optgroup>
+                                        <optgroup label="中国・四国">
+                                        </optgroup>
+                                        <optgroup label="九州">
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="custom-form">
+                                    <select name="place02" id="" class="custom-form__select">
+                                        <optgroup label="【関東近郊エリア】">
+                                            <option value="" selected="">スキー場を選択</option>
+                                        </optgroup>
+                                        <optgroup label="【関東近郊エリア】">
+                                            <option value="" selected="">スキー場を選択</option>
+                                        </optgroup>
+                                        <optgroup label="【関東近郊エリア】">
+                                            <option value="" selected="">スキー場を選択</option>
+                                        </optgroup>
+                                        <optgroup label="【関東近郊エリア】">
+                                            <option value="" selected="">スキー場を選択</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-form__col">
+                            <div class="search-form__header">
+                                <h3 class="search-form__title search-form__title--05">
+                                    <i class="fa fa-building" aria-hidden="true"></i>旅行会社
+                                </h3>
+                            </div>
+                            <div class="search-form__body">
+                                <div class="custom-form">
+                                    <select name="place01" id="" class="custom-form__select">
+                                        <option value="" selected="">旅行会社を選択</option>
+                                    </select>
+                                </div>
+                                <div class="cutom-form">
+                                    <div class="cutom-form__check form-check">
+                                        <label class="form-check__label"><input name="tour-option" type="checkbox" class="form-check__input">空席があるツアー</label>
+                                    </div>
+                                    <div class="cutom-form__check form-check">
+                                        <label class="form-check__label"><input name="tour-option" type="checkbox" class="form-check__input">リフト券付き</label>
+                                    </div>
+                                    <div class="cutom-form__check form-check">
+                                        <label class="form-check__label"><input name="tour-option" type="checkbox" class="form-check__input">レンタル付き</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-form__col">
+                            <div class="search-form__header">
+                                <h3 class="search-form__title search-form__title--06">
+                                    <i class="fa fa fa-calendar" aria-hidden="true"></i>出発日
+                                </h3>
+                            </div>
+                            <div class="search-form__body">
+                                <div class="custom-form--input">
+                                    <input type="text" name="place02" class="custom-form__input datepicker" placeholder="12月未定">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="search-form__footer">
+                        <button class="search-form__button" onclick="submit();">今すぐ簡単検索</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </section>
+    <!--/.contents/.search-box -->
+    <section class="contents search-navi">
+        <div class="contents__inner">
+            <div class="contents__header">
+                <h2 class="text">スキーツアー・スノボツアーの簡単比較サイト「スノボブ」では、スキー場、交通手段など様々な方法で探せます。</h2>
+            </div>
+            <div class="contents__body">
+                <ul class="search-navi__lists">
+                    <li class="search-navi__item column-6">
+                        <a>
+                            <div class="search-navi__text">
+                                <h3 class="search-navi__title">スキー場から探す</h3>
+                            </div>
+                            <img src="../assets/frontend/images/img_category01.png">
+                        </a>
+                    </li>
+                    <li class="search-navi__item column-6">
+                        <a>
+                            <div class="search-navi__text">
+                                <h3 class="search-navi__title">出発地から探す</h3>
+                            </div>
+                            <img src="../assets/frontend/images/img_category02.png">
+                        </a>
+                    </li>
+                    <li class="search-navi__item column-4">
+                        <a>
+                            <div class="search-navi__text">
+                                <h3 class="search-navi__title">交通手段で探す</h3>
+                            </div>
+                            <img src="../assets/frontend/images/img_category03.png">
+                        </a>
+                    </li>
+                    <li class="search-navi__item column-4">
+                        <a>
+                            <div class="search-navi__text">
+                                <h3 class="search-navi__title">旅行会社から探す</h3>
+                            </div>
+                            <img src="../assets/frontend/images/img_category04.png">
+                        </a>
+                    </li>
+                    <li class="search-navi__item column-4">
+                        <a>
+                            <div class="search-navi__text">
+                                <h3 class="search-navi__title">宿泊先から探す</h3>
+                            </div>
+                            <img src="../assets/frontend/images/img_category05.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="contents__inner">
+            <div class="area-lists flexbox--spacebetween">
+                <div class="flexbox-item column-12">
+                    <div class="area-lists__header">出発地一覧</div>
+                    <div class="area-lists__body">
+                        <ul class="area-lists__lists">
+                            <li><a href="#">北海道</a></li>
+                            <li><a href="#">青森県</a></li>
+                            <li><a href="#">岩手県</a></li>
+                            <li><a href="#">宮城県</a></li>
+                            <li><a href="#">秋田県</a></li>
+                            <li><a href="#">山形県</a></li>
+                            <li><a href="#">福島県</a></li>
+                            <li><a href="#">茨城県</a></li>
+                            <li><a href="#">栃木県</a></li>
+                            <li><a href="#">群馬県</a></li>
+                            <li><a href="#">埼玉県</a></li>
+                            <li><a href="#">千葉県</a></li>
+                            <li><a href="#">東京都</a></li>
+                            <li><a href="#">神奈川県</a></li>
+                            <li><a href="#">新潟県</a></li>
+                            <li><a href="#">富山県</a></li>
+                            <li><a href="#">石川県</a></li>
+                            <li><a href="#">福井県</a></li>
+                            <li><a href="#">山梨県</a></li>
+                            <li><a href="#">長野県</a></li>
+                            <li><a href="#">岐阜県</a></li>
+                            <li><a href="#">静岡県</a></li>
+                            <li><a href="#">愛知県</a></li>
+                            <li><a href="#">三重県</a></li>
+                            <li><a href="#">滋賀県</a></li>
+                            <li><a href="#">京都府</a></li>
+                            <li><a href="#">大阪府</a></li>
+                            <li><a href="#">兵庫県</a></li>
+                            <li><a href="#">奈良県</a></li>
+                            <li><a href="#">和歌山県</a></li>
+                            <li><a href="#">鳥取県</a></li>
+                            <li><a href="#">島根県</a></li>
+                            <li><a href="#">岡山県</a></li>
+                            <li><a href="#">広島県</a></li>
+                            <li><a href="#">山口県</a></li>
+                            <li><a href="#">徳島県</a></li>
+                            <li><a href="#">香川県</a></li>
+                            <li><a href="#">愛媛県</a></li>
+                            <li><a href="#">高知県</a></li>
+                            <li><a href="#">福岡県</a></li>
+                            <li><a href="#">佐賀県</a></li>
+                            <li><a href="#">長崎県</a></li>
+                            <li><a href="#">熊本県</a></li>
+                            <li><a href="#">大分県</a></li>
+                            <li><a href="#">宮崎県</a></li>
+                            <li><a href="#">鹿児島県</a></li>
+                            <li><a href="#">沖縄県</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="area-lists flexbox-item column-12">
+                    <div class="area-lists__header">全国スキー場一覧</div>
+                    <div class="area-lists__body">
+                        <div class="flexbox--center">
+                            <div class="ski-place flexbox-item">
+                                <div class="ski-place__header">【関東近郊エリア】</div>
+                                <div class="ski-place__body">
+                                    <ul class="ski-place__lists">
+                                        <li><a href="#">Mt.Naeba</a></li>
+                                        <li><a href="#">石打丸山スキー場</a></li>
+                                        <li><a href="#">上越国際スキー場</a></li>
+                                        <li><a href="#">六日町スキーリゾート</a></li>
+                                        <li><a href="#">GALA湯沢</a></li>
+                                        <li><a href="#">舞子スノーリゾート</a></li>
+                                        <li><a href="#">湯沢高原スキー場</a></li>
+                                        <li><a href="#">湯沢中里スキー場</a></li>
+                                        <li><a href="#">岩原スキー場</a></li>
+                                        <li><a href="#">キューピットバレイ</a></li>
+                                        <li><a href="#">湯沢パークリゾート</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ski-place flexbox-item">
+                                <div class="ski-place__body">
+                                    <ul class="ski-place__lists">
+                                        <li><a href="#">Mt.Naeba</a></li>
+                                        <li><a href="#">石打丸山スキー場</a></li>
+                                        <li><a href="#">上越国際スキー場</a></li>
+                                        <li><a href="#">六日町スキーリゾート</a></li>
+                                        <li><a href="#">GALA湯沢</a></li>
+                                        <li><a href="#">舞子スノーリゾート</a></li>
+                                        <li><a href="#">湯沢高原スキー場</a></li>
+                                        <li><a href="#">湯沢中里スキー場</a></li>
+                                        <li><a href="#">岩原スキー場</a></li>
+                                        <li><a href="#">キューピットバレイ</a></li>
+                                        <li><a href="#">湯沢パークリゾート</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ski-place flexbox-item">
+                                <div class="ski-place__header">【白馬・栂池エリア】</div>
+                                <div class="ski-place__body">
+                                    <ul class="ski-place__lists">
+                                        <li><a href="#">Mt.Naeba</a></li>
+                                        <li><a href="#">石打丸山スキー場</a></li>
+                                        <li><a href="#">上越国際スキー場</a></li>
+                                        <li><a href="#">六日町スキーリゾート</a></li>
+                                        <li><a href="#">GALA湯沢</a></li>
+                                        <li><a href="#">舞子スノーリゾート</a></li>
+                                        <li><a href="#">湯沢高原スキー場</a></li>
+                                    </ul>
+                                </div>
+                                <div class="ski-place__header">【志賀・北志賀エリア】</div>
+                                <div class="ski-place__body">
+                                    <ul class="ski-place__lists">
+                                        <li><a href="#">Mt.Naeba</a></li>
+                                        <li><a href="#">GALA湯沢</a></li>
+                                        <li><a href="#">舞子スノーリゾート</a></li>
+                                        <li><a href="#">湯沢高原スキー場</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ski-place flexbox-item">
+                                <div class="ski-place__header">【斑尾・野沢・戸狩エリア】</div>
+                                <div class="ski-place__body">
+                                    <ul class="ski-place__lists">
+                                        <li><a href="#">Mt.Naeba</a></li>
+                                        <li><a href="#">舞子スノーリゾート</a></li>
+                                        <li><a href="#">湯沢高原スキー場</a></li>
+                                    </ul>
+                                </div>
+                                <div class="ski-place__header">【菅平峰の原エリア】</div>
+                                <div class="ski-place__body">
+                                    <ul class="ski-place__lists">
+                                        <li><a href="#">Mt.Naeba</a></li>
+                                        <li><a href="#">舞子スノーリゾート</a></li>
+                                        <li><a href="#">湯沢高原スキー場</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ski-place flexbox-item">
+                                <div class="ski-place__header">【関東近郊エリア】</div>
+                                <div class="ski-place__body">
+                                    <ul class="ski-place__lists">
+                                        <li><a href="#">Mt.Naeba</a></li>
+                                        <li><a href="#">舞子スノーリゾート</a></li>
+                                        <li><a href="#">湯沢高原スキー場</a></li>
+                                    </ul>
+                                </div>
+                                <div class="ski-place__header">【苗場・上越エリア】</div>
+                                <div class="ski-place__body">
+                                    <ul class="ski-place__lists">
+                                        <li><a href="#">Mt.Naeba</a></li>
+                                        <li><a href="#">舞子スノーリゾート</a></li>
+                                        <li><a href="#">湯沢高原スキー場</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ski-place flexbox-item">
+                                <div class="ski-place__header">【赤倉・妙高エリア】</div>
+                                <div class="ski-place__body">
+                                    <ul class="ski-place__lists">
+                                        <li><a href="#">Mt.Naeba</a></li>
+                                        <li><a href="#">舞子スノーリゾート</a></li>
+                                        <li><a href="#">湯沢高原スキー場</a></li>
+                                    </ul>
+                                </div>
+                                <div class="ski-place__header">【北海道エリア】</div>
+                                <div class="ski-place__body">
+                                    <ul class="ski-place__lists">
+                                        <li><a href="#">Mt.Naeba</a></li>
+                                        <li><a href="#">舞子スノーリゾート</a></li>
+                                        <li><a href="#">湯沢高原スキー場</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copy-right">
+            <div class="contents__inner flexbox--spacebetween">
+                <ul class="flexbox-item flexbox--center">
+                    <li class="flexbox-item">運営会社情報</li>
+                    <li class="flexbox-item">サイトマップ</li>
+                </ul>
+                <p class="flexbox-item">© 2019 - CongTHanh test loading.</p>
+            </div>
+        </div>
+    </footer>
+</body>

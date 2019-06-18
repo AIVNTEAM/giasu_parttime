@@ -1,0 +1,39 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Bentimviec'" [icon]="'fa-table'"></app-page-header>
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="card mb-3">
+            <div class="card-header">
+            	<a [routerLink]='["/admin/betimviec/form"]' class="btn btn-default btn-primary pull-right" *ngIf="checkGroup('GROUP_ADMIN')">{{ 'New' |  translate }}</a>
+            </div>
+            <table class="card-body table table-hover">
+                <thead>
+                <tr>
+					<th (click)="changeSort('id')"><a>ID</a><span *ngIf="sort.field=='id'" class="arrow {{sort.direction}}"></span></th>
+					<th (click)="changeSort('username')"><a>Username</a><span *ngIf="sort.field=='username'" class="arrow {{sort.direction}}"></span></th>
+					<th (click)="changeSort('email')"><a>Email</a><span *ngIf="sort.field=='email'" class="arrow {{sort.direction}}"></span></th>
+					<th (click)="changeSort('created_at')"><a>Register day</a><span *ngIf="sort.field=='created_at'" class="arrow {{sort.direction}}"></span></th>
+					<th (click)="changeSort('active')"><a>Active</a><span *ngIf="sort.field=='active'" class="arrow {{sort.direction}}"></span></th>
+				</tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let user of dsbentimviec; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td><a [routerLink]='["/admin/users/form",user.id]'>{{user.username}}</a></td>
+                    <td>{{user.fullname}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.group}}</td>
+
+                </tr>
+                
+                </tbody>
+            </table>
+            <div class="card-footer">
+                <span *ngIf="numberOfData !== 0">
+                    <sa-paginator *ngIf="data" [data]="data" url="/admin/bentimviec"></sa-paginator>
+                </span>
+            </div>
+        	</div>
+       	</div>
+    </div>
+</div>

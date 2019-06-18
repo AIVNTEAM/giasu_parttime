@@ -1,0 +1,6 @@
+[
+	{"id": 1, "name": "A", "description": "Nha hieu bo", "numunits": 10},
+	{"id": 2, "name": "B", "description": "Khoa CNTT", "numunits": 30},
+	{"id": 3, "name": "C", "description": "Khoa Ngoai Ngu", "numunits": 20},
+	{"id": 4, "name": "D", "description": "Khoa Kinh Te", "numunits": 30}
+]

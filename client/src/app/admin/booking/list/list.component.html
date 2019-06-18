@@ -1,0 +1,49 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Bookings'" [icon]="'fa-table'"></app-page-header>
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="card mb-3">
+            <div class="card-header">
+            	<a [routerLink]='["/admin/bookings/form"]' class="btn btn-default btn-primary pull-right" *ngIf="checkGroup('GROUP_ADMIN')">{{ 'New' |  translate }}</a>
+            </div>
+            <table class="card-body table table-hover">
+                <thead>
+                <tr>
+					<th (click)="changeSort('id')"><a>No.</a><span *ngIf="sort.field=='id'" class="arrow {{sort.direction}}"></span></th>
+					<th (click)="changeSort('username')"><a>Tieu de</a><span *ngIf="sort.field=='username'" class="arrow {{sort.direction}}"></span></th>
+                    <th (click)="changeSort('username')"><a>Nguoi tuyen dung</a><span *ngIf="sort.field=='username'" class="arrow {{sort.direction}}"></span></th>
+                    <th (click)="changeSort('username')"><a>SDT nguoi tuyen dung</a><span *ngIf="sort.field=='username'" class="arrow {{sort.direction}}"></span></th>
+                    <th (click)="changeSort('username')"><a>Nguoi tim viec</a><span *ngIf="sort.field=='username'" class="arrow {{sort.direction}}"></span></th>
+                    <th (click)="changeSort('username')"><a>SDT nguoi tim viec</a><span *ngIf="sort.field=='username'" class="arrow {{sort.direction}}"></span></th>
+                    <th (click)="changeSort('username')"><a>Trang thai thanh toan</a><span *ngIf="sort.field=='username'" class="arrow {{sort.direction}}"></span></th>
+					<th (click)="changeSort('email')"><a>So tien thanh toan</a><span *ngIf="sort.field=='email'" class="arrow {{sort.direction}}"></span></th>
+					<th (click)="changeSort('created_at')"><a>Nguoi duyet</a><span *ngIf="sort.field=='created_at'" class="arrow {{sort.direction}}"></span></th>
+					<th (click)="changeSort('active')"><a>Ngay kich hoat</a><span *ngIf="sort.field=='active'" class="arrow {{sort.direction}}"></span></th>
+				</tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let booking of bookings; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td><a [routerLink]='["/admin/bookings/form",booking.id]'>{{booking.tieude}}</a></td>
+                    <td>{{booking.nguoituyendung}}</td>
+                    <td>{{booking.sdtnguoituyendung}}</td>
+                    <td>{{booking.nguoitimviec}}</td>
+                    <td>{{booking.sdtnguoitimviec}}</td>
+                    <td>{{booking.trangthaithanhtoan}}</td>
+                    <td>{{booking.sotiendathanhtoan}}</td>
+                    <td>{{booking.admin_duyet}}</td>
+                    <td>{{booking.created_at}}</td>
+
+                </tr>
+                
+                </tbody>
+            </table>
+            <div class="card-footer">
+                <span *ngIf="numberOfData !== 0">
+                    <sa-paginator *ngIf="data" [data]="data" url="/admin/bookings"></sa-paginator>
+                </span>
+            </div>
+        	</div>
+       	</div>
+    </div>
+</div>

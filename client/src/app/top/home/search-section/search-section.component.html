@@ -1,0 +1,41 @@
+<section class="block-2 job p-b-30 bg-f bg-image-1 bg-fixed" data-image-src="assets/frontend/images/dawn-2178296_1920.jpg" style="margin-top: 129px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7"><!-- Blog-item -->
+				<div class="caption color-f text-center m-t-100 m-t-xs-30 m-b-50">
+					<h1 class="f-80 f-xs-50 f-weight-300 text-uppercase f-family-poppins p-b-0">Job<strong class="f-bold selected">seek</strong></h1>
+					<h5 class="f-30 f-xs-18 text-uppercase f-normal f-family-poppins">Search millions of JOBS for free</h5>
+					<p class="max-w-700 line-default line-default-f p-b-25">Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do eiusmod temp incidunt ut labomet co</p>
+					<a href="#" class="ht-btn ht-btn-3x rad-3 bg-f m-t-30">Create a Resume</a>
+				</div>
+			</div>
+			<div class="col-md-5"><!-- Blog-item -->
+				<div class="bg-f p-30 p-xs-10 m-b-30">
+					<div class="bg-4f84c4 thumb-item p-b-40 p-xs-25 m-b-0">
+						<h4 class="heading p-t-0 text-left">Tìm lớp</h4>
+						<form action="/search" method="POST" (ngSubmit)="searchCongviec()">
+							<select [(ngModel)]="data.monhoc_id" name="monhoc_id" class="form-item form-item-3x no-border">
+								<option value="">Môn học (all)</option>
+								<option *ngFor="let mh of dsmh" value="{{mh.id}}">{{mh.monhoc}}</option>
+							</select>
+							<select [(ngModel)]="data.huyen_id" name="huyen_id" class="form-item form-item-3x no-border">
+								<option value="">Khu vực (all)</option>
+								<option *ngFor="let kv of dskv" value="{{kv.id}}">{{kv.khuvuc}}</option>
+							</select>
+							<select [(ngModel)]="data.hinhthuc_id" name="hinhthuc_id" class="form-item form-item-3x no-border">
+								<option value="">Hình thức (all)</option>
+								<option *ngFor="let ht of dsht" value="{{ht.id}}">{{ht.hinhthuc}}</option>
+							</select>
+							<select [(ngModel)]="data.caphoc_id" name="caphoc_id" class="form-item form-item-3x no-border">
+								<option value="">Cấp học (all)</option>
+								<option *ngFor="let ch of dsch" value="{{ch.id}}">{{ch.caphoc}}</option>
+							</select>
+							<input type="search" class="form-item form-item-3x no-border" placeholder="Keywords" [(ngModel)]="data.key_word" name="name">
+							<div class="form-group m-b-0"><button type="submit" class="ht-btn ht-btn-3x bg-1 w-full text-center m-t-5">Tìm</button></div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

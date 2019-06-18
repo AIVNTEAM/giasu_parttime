@@ -1,0 +1,41 @@
+<section class="job bg-f">
+	<div class="container">
+		<div class="title-group line-default">
+			<h2>Kết quả tìm kiếm</h2>
+			
+		</div>
+		<div class="row">
+			<div class="col-sm-12"><!-- Blog-item -->
+				<div class="box-item" *ngFor="let cv of dscongviec">
+					<div class="row">
+						<div class="col-sm-2 text-center">
+							<a href="#" class="thumb-img"><img src="../../../assets/frontend/images/log1.png" alt="image"></a>
+						</div>
+						<div class="col-sm-10">
+							<h3 class="heading p-t-0">
+								<a href="#">{{cv.tieude}}</a>
+								<span>{{cv.ngay_bat_dau}}</span>
+							</h3>
+							<p>{{cv.monhoc}}<span class="color-a">| {{cv.caphoc}}</span><span style="color: red; font-weight: bold">| {{cv.mucluong}}</span></p>
+							<p class="selected">{{cv.mota}}</p>
+							<div class="p-t-5">
+								<button type="submit" class="btn btn-sm btn-default m-r-10" data-container="body" data-toggle="popover" data-placement="bottom" data-content="" data-original-title="" title="">Share</button>
+								<div class="list-icon d-none">
+									<ul class="list-inline">
+										<li><a href="#"><i class="fa fa-facebook icon icon-30 rad-5 bg-4f84c4"></i></a></li>
+										<li><a href="#"><i class="fa fa-google icon icon-30 rad-5 bg-f2552c"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter icon icon-30 rad-5 bg-95dee3"></i></a></li>
+										<li><a href="#"><i class="fa fa-instagram icon icon-30 rad-5 bg-fe718b"></i></a></li>
+									</ul>
+								</div>
+								<a href="#" class="btn btn-sm btn-default m-r-10">Save</a>
+								<a href="#" class="btn btn-sm btn-info pull-right">Apply</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</section>
