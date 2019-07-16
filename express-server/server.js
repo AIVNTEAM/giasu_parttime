@@ -1,3 +1,4 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -120,6 +121,18 @@ app.get('/api/users/detail', function(req, res){
 app.post('/api/users/save', function(req, res){
 	console.log("Da luu thanh cong user: " + req.query.username);
 	res.status(200).send({"data": "Da luu thanh cong"})
+})
+
+app.post('/api/users/login', function(req, res){
+	var username = req.body.username;
+	console.log("user name: " + username);
+	data = {
+		"username_id": 3,
+		"token": "123456",
+		"role": 2,
+		"profile": "Nguyen Thi Binh"
+	}
+	res.status(200).send({"data": data})
 })
 
 app.get('/api/message', function(req, res){
@@ -379,4 +392,6 @@ app.post('/api/danhmucviec/save', function(req, res){
 	res.status(200).send({"message": "Data received"});
 })
 
-// app.get('/api/danhmucviec')
+app.post('/api/quantrintd/viec/save', function(req, res){
+	console.log('Quan tri nguoi tuyen dung thanh cong - luu viec');
+})

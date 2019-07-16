@@ -1,0 +1,67 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Messages'" [icon]="'fa-table'"></app-page-header>Detail
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="card mb-3">
+                <div class="card-header">
+                	<flash-messages></flash-messages>
+                </div>
+                <table class="card-body table table-hover">
+                    <thead>
+                    <tr>
+    					
+    					
+    					
+    				</tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>User goi</th>
+                        <td>{{data.username}}</td>
+                    </tr>
+                    <tr>
+                        <th>Noi dung</th>
+                        <td>{{data.message}}</td>
+                    </tr>
+                    <tr>
+                        <th>Ngay goi</th>
+                        <td>{{data.created_at}}</td>
+
+                    </tr>
+                    
+                    </tbody>
+
+                </table>
+                <div class="card-footer">
+                    <form (ngSubmit)="postReply()">
+                        <fieldset class="form-group">
+                            <label>Reply</label>
+                            <textarea class="form-control" [(ngModel)]="reply.content" name="reply" id="reply">
+                            </textarea>
+                        </fieldset>
+                        
+                        <button type="submit" class="btn btn-default btn-primary pull-right">Reply</button>
+                    </form>
+                    <!-- <p class="alert alert-success" *ngIf="thongbao">{{thongbao}}</p> -->
+                </div>
+        	</div>
+       	</div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>All replies</h4>
+            <ul>
+                <li *ngFor="let rep of replies; index as i">
+                    <p>{{rep.created_at}}</p>
+                    <p>{{rep.content}}</p>
+                    <p>{{rep.username}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-default btn-primary" (click)="goBack()">Back</button>
+        </div>
+    </div>
+</div>

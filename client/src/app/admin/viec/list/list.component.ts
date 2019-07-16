@@ -36,7 +36,8 @@ export class ListComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-  	this.currentUser = JSON.parse(config.get('CURRENT_USER'));
+    // this.currentUser = JSON.parse(config.get('CURRENT_USER', ''));
+  	this.currentUser = config.get('CURRENT_USER', '');
     
   	window.scrollTo(0,0);
     this.route.params.subscribe((params:Params) => this.getViec(params['page']));

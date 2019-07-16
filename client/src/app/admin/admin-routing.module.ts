@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 //CongThanh: test voi guard don gian
-// import {AuthGuard} from "../shared/guards/auth-guard";
-import {AuthGuard} from "../shared/guard";
+import {AuthGuard} from "../shared/guards/auth-guard";
+// import {AuthGuard} from "../shared/guard";
 
 const routes: Routes = [
     {
         path: '',
-        // canActivateChild: [AuthGuard],
+        canActivateChild: [AuthGuard],
         component: AdminComponent,
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },

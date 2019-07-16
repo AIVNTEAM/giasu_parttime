@@ -24,6 +24,7 @@ export class AuthGuard implements CanActivateChild {
   checkAuth() {
     var token = config.get('AUTH_TOKEN', '');
     var user =  config.get('CURRENT_USER','');
+    var role = config.get('ROLE_USER', '');
 
     //kiem tra neu ko co token va user chua ton tai tra ve false
     if(token == '' || user == '')
@@ -32,15 +33,19 @@ export class AuthGuard implements CanActivateChild {
       return false;
     }
 
-    this.appService.get('users/check').subscribe((res:any) =>
-    {
-      if(res.status == 401) //401: khong co quyen truy cap
-      {
-        this.router.navigate(['admin/auth/login']);
-        return false;
-      }
-    });
-
-    return true;
+    // this.appService.get('users/check').subscribe((res:any) =>
+    // {
+    //   if(res.status == 401) //401: khong co quyen truy cap
+    //   {
+    //     this.router.navigate(['admin/auth/login']);
+    //     return false;
+    //   }
+    // });
+    //neu quyen admin = 1: cho vao
+    if (role == 1){
+      return true;
+    } 
+    window.alert("You don't have permission to view this page");
+    return false;
   }
 }

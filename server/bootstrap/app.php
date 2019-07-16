@@ -57,12 +57,15 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//     App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->middleware([
+    App\Http\Middleware\CorsMiddleware::class
+]);
 
+// $app->routeMiddleware([
+//     'auth' => App\Http\Middleware\Authenticate::class,
+// ]);
 $app->routeMiddleware([
-    'auth' => App\Http\Middleware\Authenticate::class,
+    'jwt.auth' => App\Http\Middleware\JwtMiddleware::class,
 ]);
 
 /*
@@ -76,7 +79,7 @@ $app->routeMiddleware([
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
+$app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
@@ -96,16 +99,5 @@ $app->router->group([
 ], function ($router) {
     require __DIR__.'/../routes/web.php';
 });
-
-//dang ky middleware 
-//If you want to allow jwt.auth on a specific middleware group or route, add the HandleCors middleware to your group:
-$app->routeMiddleware([
-    'jwt.auth' => App\Http\Middleware\JwtMiddleware::class,
-]);
-
-//To allow CORS for all your routes, add the HandleCors middleware to the global middleware:
-$app->middleware([
-    App\Http\Middleware\CorsMiddleware::class
- ]);
 
 return $app;

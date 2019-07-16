@@ -8,6 +8,7 @@ import { AdminComponent } from './admin.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 
+import {AuthGuard} from "../shared/guards/auth-guard";
 
 @NgModule({
     imports: [
@@ -16,6 +17,9 @@ import { HeaderComponent } from './components/header/header.component';
         TranslateModule,
         NgbDropdownModule
     ],
-    declarations: [AdminComponent, SidebarComponent, HeaderComponent]
+    declarations: [AdminComponent, SidebarComponent, HeaderComponent],
+    providers: [
+    	AuthGuard
+    ]
 })
 export class AdminModule {}

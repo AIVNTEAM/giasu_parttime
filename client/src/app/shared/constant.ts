@@ -1,7 +1,7 @@
 // var domain = document.domain=='localhost'?'sunobob.dev':document.domain;
 //CongThanh: sua lai cho su dung local server - lumen hoac node server
-// var domain = document.domain=='localhost'?'localhost:8000':document.domain;
-var domain = document.domain=='localhost'?'localhost:3000':document.domain;
+var domain = document.domain=='localhost'?'localhost:8000':document.domain;
+// var domain = document.domain=='localhost'?'localhost:3000':document.domain;
 var protocol = location.protocol;
 export const constant: any=
 {
@@ -83,6 +83,24 @@ export const constant: any=
           1: 'Học tại nhà',
           2: 'Học online'
         }
+    },
+
+    Khuvuc:
+    {
+        1: 'Tp. Quảng Ngãi',
+        2: 'Tư Nghĩa',
+        3: 'Nghĩa Hành',
+        4: 'Minh Long',
+        5: 'Trà Bồng',
+        6: 'Sơn Trà',
+        7: 'Mộ Đức',
+        8: 'Đức Phổ',
+        9: 'Sơn Tịnh',
+        10: 'Bình Sơn',
+        11: 'Lý Sơn',
+        12: 'Ba Tơ',
+        13: 'Sơn Tây',
+        14: 'Sơn Hà'
     },
 
     

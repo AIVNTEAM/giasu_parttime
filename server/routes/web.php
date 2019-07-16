@@ -15,36 +15,29 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->post(
-    'auth/login', 
-    [
-       'uses' => 'AuthController@authenticate'
-    ]
-);
+$prefix = env('API_PREFIX');
 
-$router->post(
-    'reg', 
-    [
-       'uses' => 'ExampleController@register'
-    ]
-);
-//test middleware jwt.auth - su dung TOKEN jwt
-$router->group(
-    ['middleware' => 'jwt.auth'], 
-    function() use ($router) {
-        $router->get('users', function() {
-            $users = \App\User::all();
-            return response()->json($users);
-        });
-    }
-);
+$router->group(['prefix' => $prefix], function() use ($router) {
+
+    $router->post('login', 'AuthController@login');
+    $router->post('register', 'AuthController@register');
+    $router->get('menus', 'MenuController@list');
+
+});
+
+$router->group([ 'middleware' => 'jwt.auth', 'prefix' => $prefix.'/auth' ],function() use ($router) {
+
+          $router->get('members', 'UserController@members');
+          $router->get('user', 'UserController@user');
+
+});
 
 //giao tiep voi angular
 // $router->post('api/reg', 'ExampleController@register');
-$router->get('/get/menu/list', 'MenuController@list');
-$router->get('/get/menu/{id}', 'MenuController@detail');
-$router->post('/post/menu/save', 'MenuController@save');
-$router->put('/put/menu/update', 'MenuController@update');
-$router->delete('/delete/menu/{id}', 'MenuController@delete');
+// $router->get('/get/menu/list', 'MenuController@list');
+// $router->get('/get/menu/{id}', 'MenuController@detail');
+// $router->post('/post/menu/save', 'MenuController@save');
+// $router->put('/put/menu/update', 'MenuController@update');
+// $router->delete('/delete/menu/{id}', 'MenuController@delete');
  
-$router->get('/get/type_menu/list', 'MenuTypeController@list');
+// $router->get('/get/type_menu/list', 'MenuTypeController@list');

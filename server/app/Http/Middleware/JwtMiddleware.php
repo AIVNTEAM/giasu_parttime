@@ -9,15 +9,15 @@ class JwtMiddleware
 {
     public function handle($request, Closure $next, $guard = null)
     {
-        $token = $request->get('token');
-        
+        $token = $request->header('token');
+
         if(!$token) {
             // Unauthorized response if token not there
             return response()->json([
                 'error' => 'Token not provided.'
             ], 401);
         }
-        try {
+        try {          
             $credentials = JWT::decode($token, env('JWT_SECRET'), ['HS256']);
         } catch(ExpiredException $e) {
             return response()->json([

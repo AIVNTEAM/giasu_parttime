@@ -1,0 +1,34 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+            <h1><span id="logo">
+              <img src="assets/frontend/images/mt-0996-logo.png" alt="">
+              </span>
+              <span>JOBSEEKER</span>
+            </h1>
+            <form role="form" (ngSubmit)="onSubmit()">
+                <div class="form-content">
+                    <div class="form-group">  
+                        <input id="username" [(ngModel)]="formData.username" name="username" type="text" class="form-control input-underline input-lg" placeholder="{{'Username'| translate}}" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                       <input id="password" [(ngModel)]="formData.password" name="password" type="password" class="form-control input-underline input-lg" placeholder="{{'Password'| translate}}" class="form-control">
+                    </div>
+                </div>
+                <button class="btn rounded-btn" type="submit">{{'Login'| translate}}</button>
+                &nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/auth/register']">Register</a>
+                
+            </form>
+            <div class="row form-group">
+                  <label class="col-md-3 control-label"></label>
+                  <div class="col-md-9">
+                    <a [routerLink]='["/auth/forgot-password"]' title="{{'Forgot password'| translate}}"> {{'Click forgot password'| translate}} </a>
+                  </div>
+                  <label class="col-md-3 control-label"></label>
+                </div>
+        </div>
+    </div>
+</div>

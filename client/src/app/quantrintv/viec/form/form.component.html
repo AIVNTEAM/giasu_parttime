@@ -1,0 +1,95 @@
+<div [@routerTransition]>
+    <app-page-header *ngIf="isNew" [heading]="'Add User'" [icon]="'fa-edit'"></app-page-header>
+    <app-page-header *ngIf="!isNew" [heading]="'Edit User'" [icon]="'fa-edit'"></app-page-header>
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <form role="form" (ngSubmit)="saveData(true)">
+                <fieldset class="form-group" *ngIf="!isNew">
+                    <label>NO</label>
+                    <div class="col-md-10 padding-no-id" *ngIf="data.id">
+                        {{data.id}}
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label><span style="color: red">*</span>Tên công việc</label>
+                    <input class="form-control" [(ngModel)]="data.tieude" name="tieude" id="tieude">
+                </fieldset>
+
+				<fieldset class="form-group">
+                    <label>Mô tả công việc</label>
+                    <input type="text" [(ngModel)]="data.mota" class="form-control" name="mota" id="mota">
+                </fieldset>
+				
+				<fieldset class="form-group">
+                    <label>Muc luong<span class="text-danger">*</span></label>
+                    <input class="form-control" [(ngModel)]="data.mucluong" name="mucluong" id='mucluong' >
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Hình thức<span class="text-danger">*</span></label>
+                    <select class="form-control" name="hinhthuc" [(ngModel)]="data.hinhthuc" id='hinhthuc' (change)="getDanhmuc(data.hinhthuc)">
+                        <option *ngFor="let item of listHinhthuc | keyvalue" [value]="item.key" [selected]="item.key=='data.hinhthuc'" >
+                            {{item.value}}
+                        </option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label *ngIf="data.hinhthuc==1">Môn dạy<span class="text-danger">*</span></label>
+                    <label *ngIf="data.hinhthuc==2">Danh mục việc<span class="text-danger">*</span></label>
+                    <select class="form-control" name="danhmucviec" [(ngModel)]="data.danhmucviec" id='danhmucviec' *ngIf="data.hinhthuc==2 || data.hinhthuc==1">
+                        <option *ngFor="let danhmuc of listDanhmucviec" [value]="danhmuc.id" [selected]="danhmuc.id=='data.danhmucviec_id'" >
+                            {{danhmuc.tendanhmuc}}
+                        </option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Nơi làm việc<span class="text-danger">*</span></label>
+                    <select class="form-control" name="khuvuc" [(ngModel)]="data.khuvuc" id='khuvuc' >
+                        <option *ngFor="let khuvuc of listKhuvuc" [value]="khuvuc.id" [selected]="khuvuc.id=='data.khuvuc_id'" >
+                            {{khuvuc.tenkhuvuc}}
+                        </option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group" *ngIf="data.hinhthuc==1">
+                    <label>Cấp học<span class="text-danger">*</span></label>
+                    <select class="form-control" [(ngModel)]="data.caphoc" name="caphoc" id='caphoc' >
+                        <option *ngFor="let item of listCaphoc | keyvalue" [value]="item.key" [selected]="item.key=='data.caphoc'" >
+                            {{item.value}}
+                        </option>
+                    </select>
+                </fieldset>
+
+				<fieldset class="form-group">
+                    <label>Active<span class="text-danger">*</span></label>
+                    <select class="form-control" [(ngModel)]="data.active" name="active" id='active' >
+						<option *ngFor="let item of listActive | keyvalue" [value]="item.key" [selected]="item.key=='data.active'" >
+							{{item.value}}
+						</option>
+                   	</select>
+                </fieldset>
+			
+				
+
+				<div class="form-actions">
+                  <div class="row">
+                    <div class="col-md-12">
+                       <a class="btn btn-default" [routerLink]='["/admin/users"]' type="button">Cancel</a>
+                      <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Submit</button>
+                    </div>
+                  </div>
+                </div>
+            </form>
+
+        </div>
+        
+    </div>
+    <!-- /.row -->
+    
+</div>
+

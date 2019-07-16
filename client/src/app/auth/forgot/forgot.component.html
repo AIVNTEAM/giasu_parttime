@@ -1,0 +1,32 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+            <h1><span id="logo">
+              <img src="assets/frontend/images/mt-0996-logo.png" alt="">
+              </span>
+              <span>JOBSEEKER</span>
+            </h1>
+            <h2>{{'Forgot password'| translate}}</h2>
+            <form role="form" (ngSubmit)="onSubmit(email)">
+                <div class="form-content">
+                    <div class="form-group"> 
+                        <label class="col-md-3 control-label">{{'Email'| translate}} <span class="text-danger"> *</span></label> 
+                        <div class="col-md-9">
+                          <input id="email" [(ngModel)]="email" name="email" type="text" placeholder="{{'Email'| translate}}" class="form-control">
+                          <br>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-md-3 control-label"></label>
+                      <div class="col-md-9">
+                        <button class="btn rounded-btn" type="submit">{{'Send'| translate}}</button>
+                        <a class="btn rounded-btn" [routerLink]='["/admin/auth/login"]' type="button">{{'Back'| translate}}</a>
+                      </div>
+                    </div>
+                </div>                
+            </form>            
+        </div>
+    </div>
+</div>

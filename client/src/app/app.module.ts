@@ -5,9 +5,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppService } from "./shared/app.service";
+// import { AuthService } from "./shared/auth.service";
+import { TokenInterceptorService } from './shared/token-interceptor.service';
 import { LanguageTranslationModule } from './shared/modules/language-translation/language-translation.module'
 
 @NgModule({
@@ -24,7 +26,15 @@ import { LanguageTranslationModule } from './shared/modules/language-translation
     ReactiveFormsModule,
     LanguageTranslationModule
   ],
-  providers: [AppService],
+  providers: [
+    AppService,
+    // AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
