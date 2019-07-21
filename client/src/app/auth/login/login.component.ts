@@ -31,7 +31,21 @@ export class LoginComponent implements OnInit
         res => {
           console.log(res)
           localStorage.setItem('token',res.token)
-          // this._router.navigate(['/members'])
+
+          //phan tich token de xem user co role la gi? 
+          // chuyen vao dia chi tuong ung?
+          var user = JSON.parse(atob(res.token.split('.')[1]));
+          console.log('user: ');
+          console.log(user);
+          var role = user.user.role;
+          if (role == 1){
+              this.router.navigate(['/admin']);
+          } else if (role == 2){
+              this.router.navigate(['/quantrintd']);
+          } else {
+              this.router.navigate(['/quantrintv']);
+          }
+          // this.router.navigate(['/admin'])
         },
         error => console.log(error)
       );

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMenuTable extends Migration
+class CreateLopsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateMenuTable extends Migration
      */
     public function up()
     {
-        Schema::create('m_menu', function (Blueprint $table) {
-          $table->increments('id');
-          $table->string('name',100);
-          $table->integer('price');
-          $table->integer('type_id');
-          $table->text('note');
+        Schema::create('lops', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('tenlop',30);
         });
     }
- 
+
     /**
      * Reverse the migrations.
      *
@@ -29,6 +26,6 @@ class CreateMenuTable extends Migration
      */
     public function down()
     {
-       Schema::drop('m_menu');
+        Schema::dropIfExists('lops');
     }
 }

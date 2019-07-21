@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMenuTypeTable extends Migration
+class CreateMonhocsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateMenuTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('m_menu_type', function (Blueprint $table) {
-          $table->increments('id')->unsigned();
-          $table->string('type_name');
+        Schema::create('monhocs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('tenmonhoc',30);
+			$table->string('ghichu',60);
         });
     }
- 
+
     /**
      * Reverse the migrations.
      *
@@ -26,6 +27,6 @@ class CreateMenuTypeTable extends Migration
      */
     public function down()
     {
-         Schema::drop('m_menu_type');
+        Schema::dropIfExists('monhocs');
     }
 }
