@@ -19,10 +19,13 @@ $prefix = env('API_PREFIX');
 
 $router->group(['prefix' => $prefix], function() use ($router) {
 
-    $router->post('login', 'AuthController@login');
+    $router->post('/login', 'AuthController@login');
     $router->post('register', 'AuthController@register');
     $router->get('menus', 'MenuController@list');
 
+    $router->group(['prefix' => 'giasu'], function() use ($router){
+    	$router->post('/register', 'GiasuController@dangky');
+    });
 });
 
 $router->group([ 'middleware' => 'jwt.auth', 'prefix' => $prefix.'/auth' ],function() use ($router) {

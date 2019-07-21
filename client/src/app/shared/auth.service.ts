@@ -8,8 +8,8 @@ import {constant} from "./constant";
 
 export class AuthService {
 
-  private _registerUrl = constant.BASE_URL + "a/register";
-  private _loginUrl = constant.BASE_URL + "a/login";
+  private _registerUrl = constant.BASE_URL + "api/register";
+  private _loginUrl = constant.BASE_URL + "api/login";
 
   constructor( private http: HttpClient) { }
 

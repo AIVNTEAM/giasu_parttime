@@ -1,0 +1,34 @@
+<div class="container">
+	<h1><br></h1>
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Đăng ký gia sư</h1>
+			<form role="form" (ngSubmit)="onDangky()">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.username" name="username" id="" placeholder="Username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.name" name="fullname" id="" placeholder="Họ và tên">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" id="" [(ngModel)]="formData.email" name="email" placeholder="Email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" [(ngModel)]="formData.password" name="password" id="" >
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" [(ngModel)]="formData.confirm_password" name="confirm_password" id="" >
+                    </div>
+                </div>
+                
+                <button type="submit">Dang ky</button>
+                <a class="btn rounded-btn" [routerLink]="['/login']">Đăng nhập</a>
+            </form>
+		</div>
+	</div>
+</div>
+
