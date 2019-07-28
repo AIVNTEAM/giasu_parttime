@@ -11,6 +11,7 @@ const routes: Routes = [
     		{ path: '', loadChildren: './home/home.module#HomeModule', pathMatch: 'full'},
         { path: 'search', loadChildren: './search/search.module#SearchModule' },
         { path: 'giasu', loadChildren: './giasu/giasu.module#GiasuModule' },
+        { path: 'cviec', loadChildren: './viec/viec.module#CViecModule' },
     	]
 	}
 ];

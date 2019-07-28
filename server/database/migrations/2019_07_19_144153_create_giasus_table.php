@@ -17,6 +17,7 @@ class CreateGiasusTable extends Migration
             $table->bigInteger('id')->primary();
             $table->date('ngaysinh');
 			$table->tinyInteger('goitinh');/* 2: male; 3: female*/
+            $table->bigInteger('user_id');
 			$table->string('socmnd',15);
 			$table->string('anhdaidien',200);
 			$table->string('anhcmnd',200);

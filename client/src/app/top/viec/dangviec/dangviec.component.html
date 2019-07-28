@@ -1,0 +1,126 @@
+<div class="container">
+	<form role="form" (ngSubmit)="onDangky()">
+	<div class="row">
+		<div class="col-md-12">
+            <h1>&nbsp;</h1>
+            <h1>&nbsp;</h1>
+			<h1 align="center">Đăng việc tìm gia sư</h1>
+		</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            
+            <div class="form-group">
+                <label for="">Họ và tên</label>
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.hoten" name="hoten" id="" placeholder="Họ và tên">
+            </div>
+
+            <div class="form-group">
+                <label for="">Số điện thoại</label>
+                <input type="text" class="form-control input-underline input-lg" id="" [(ngModel)]="formData.sodienthoai" name="sodienthoai" placeholder="Địa chỉ">
+            </div>
+            
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" class="form-control input-underline input-lg" [(ngModel)]="formData.password" name="password" id="" >
+            </div>
+            <div class="form-group">
+                <label for="">Confirmed Password</label>
+                <input type="password" class="form-control input-underline input-lg" [(ngModel)]="formData.confirm_password" name="confirm_password" id="" >
+            </div>
+
+            <div class="form-group">
+                <label for="">Địa chỉ</label>
+                <input class="form-control input-underline input-lg" [(ngModel)]="formData.diachi" name="diachi" id="" placeholder="dia chi">
+            </div>
+            
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="">Môn học</label>
+                <select class="form-control" style="height: 50px" [(ngModel)]="formData.monhoc" name="monhoc" id="">
+                    <option value="{{mh.id}}" *ngFor="let mh of dsMonhoc">{{mh.tenmonhoc}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="">Lớp</label>
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.sobuoi" name="sobuoi" id="">
+            </div>
+
+            <div class="form-group">
+                <label for="">Tiêu đề</label>
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.tieude" name="tieude" id="" placeholder="Tiêu đề">
+            </div>
+            <div class="form-group">
+                <label for="">Nội dung</label>
+                <textarea class="form-control input-underline input-lg" [(ngModel)]="formData.noidung" name="noidung">
+                </textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="">Số buổi / tuần</label>
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.sobuoi" name="sobuoi" id="">
+            </div>
+            <div class="form-group">
+                <label for="">Lịch học</label>
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.lichhoc" name="lichhoc" id="">
+            </div>
+            <div class="form-group">
+                <label for="">Ngày bắt đầu</label>
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.ngaybatdau" name="ngaybatdau" id="">
+            </div>
+            <div class="form-group">
+                <label for="">Mức lương</label>
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.mucluong" name="mucluong" id="">
+            </div>
+            <div class="form-group">
+                <label for="">Giới tính</label>
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.gioitinh" name="gioitinh" id="">
+            </div>
+
+            <div class="form-group">
+                <label for="">Yêu cầu khác</label>
+                <textarea type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.yeucaukhac" name="yeucaukhac" id="">
+                </textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="">Tỉnh</label>
+                <select class="form-control" style="height: 50px" [(ngModel)]="formData.tinh" name="tinh" id="" (change)="loadHuyen($event.target.value)">
+                    <option value="{{tinh.id}}" *ngFor="let tinh of dsTinh">{{tinh.tentinh}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="">Huyện</label>
+                <select class="form-control" style="height: 50px" [(ngModel)]="formData.huyen" name="huyen" id="" (change)="loadXa($event.target.value)">
+                    <option value="{{huyen.id}}" *ngFor="let huyen of dsHuyen">{{huyen.tenhuyen}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="">Xã</label>
+                <select class="form-control" style="height: 50px" [(ngModel)]="formData.xa" name="xa" id="">
+                    <option value="{{xa.id}}" *ngFor="let xa of dsXa">{{xa.tenxa}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="">Địa chỉ dạy</label>
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.diachiday" name="diachiday" id="">
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" align="right">
+            <button type="submit" class="btn btn-lg btn-primary">Đăng ký</button>
+            &nbsp;
+            <button type="submit" class="btn btn-lg btn-primary" [routerLink]='["/giasu/dangnhap"]'>Đăng nhập</button>
+            <br>    
+        </div>
+    </div>
+    </form>
+</div>
+

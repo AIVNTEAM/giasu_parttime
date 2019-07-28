@@ -9,7 +9,10 @@ import {Router} from "@angular/router";
 })
 export class DangkyComponent implements OnInit {
   
-  formData = {username:'',password:'', role: 3, name: '', email: '', confirm_password: ''};
+  formData = {username:'',password:'', role: 3, name: '', email: '', confirm_password: '',
+              ngaysinh: '', giotinh: '', socmnd: '', diachicutru: '', sodienthoai: ''
+              };
+  // profileData = {};
   
   constructor(
   		private gs: GiasuService,

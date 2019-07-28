@@ -26,6 +26,11 @@ $router->group(['prefix' => $prefix], function() use ($router) {
     $router->group(['prefix' => 'giasu'], function() use ($router){
     	$router->post('/register', 'GiasuController@dangky');
     });
+
+    $router->get('tinh', 'DiachiController@getAllTinh');
+    $router->get('huyen/{id}', 'DiachiController@getHuyentheoTinh');
+    $router->get('xa/{id}', 'DiachiController@getXatheoHuyen');
+    $router->get('monhoc', 'MonhocController@getAllMonhoc');
 });
 
 $router->group([ 'middleware' => 'jwt.auth', 'prefix' => $prefix.'/auth' ],function() use ($router) {

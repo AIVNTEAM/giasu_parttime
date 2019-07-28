@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class User extends Model implements AuthenticatableContract, AuthorizableContract
+class Giasu extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable;
 
@@ -18,7 +18,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'username', 'password', 'role'
+        'ngaysinh', 'gioitinh', 'user_id', 'socmnd', 'sodienthoai', 'anhcmnd', 'diachicutru', 'anhdaidien', 'trinhdo_id', 'anhbangcap', 'status'
     ];
 
     /**
@@ -27,11 +27,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password',
+        // 'password',
     ];
 
-    public function giasu()
+    public function user()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User');
     }
 }

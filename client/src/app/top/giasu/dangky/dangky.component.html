@@ -1,34 +1,59 @@
 <div class="container">
-	<h1><br></h1>
+	<form role="form" (ngSubmit)="onDangky()">
 	<div class="row">
 		<div class="col-md-12">
+            <h1>&nbsp;</h1>
+            <h1>&nbsp;</h1>
 			<h1>Đăng ký gia sư</h1>
-			<form role="form" (ngSubmit)="onDangky()">
-                <div class="form-content">
-                    <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.username" name="username" id="" placeholder="Username">
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.name" name="fullname" id="" placeholder="Họ và tên">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" [(ngModel)]="formData.email" name="email" placeholder="Email">
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" [(ngModel)]="formData.password" name="password" id="" >
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" [(ngModel)]="formData.confirm_password" name="confirm_password" id="" >
-                    </div>
-                </div>
-                
-                <button type="submit">Dang ky</button>
-                <a class="btn rounded-btn" [routerLink]="['/login']">Đăng nhập</a>
-            </form>
 		</div>
-	</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.username" name="username" id="" placeholder="Username">
+            </div>
+            
+            <div class="form-group">
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.name" name="fullname" id="" placeholder="Họ và tên">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control input-underline input-lg" id="" [(ngModel)]="formData.email" name="email" placeholder="Email">
+            </div>
+            
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" class="form-control input-underline input-lg" [(ngModel)]="formData.password" name="password" id="" >
+            </div>
+            <div class="form-group">
+                <label for="">Confirmed Password</label>
+                <input type="password" class="form-control input-underline input-lg" [(ngModel)]="formData.confirm_password" name="confirm_password" id="" >
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.ngaysinh" name="ngaysinh" id="" placeholder="Ngay sinh (Dinh dang YYYY-MM-DD)">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.gioitinh" name="gioitinh" id="" placeholder="Gioi tinh">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.socmnd" name="socmnd" id="" placeholder="So cmnd">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.diachicutru" name="diachi" id="" placeholder="dia chi">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control input-underline input-lg" [(ngModel)]="formData.sodienthoai" name="sodienthoai" id="" placeholder="so dien thoai">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Đăng ký</button>
+            <button type="submit" class="btn btn-primary" [routerLink]='["/giasu/dangnhap"]'>Đăng nhập</button>
+        </div>
+    </div>
+    </form>
 </div>
 

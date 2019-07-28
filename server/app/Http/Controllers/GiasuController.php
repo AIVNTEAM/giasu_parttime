@@ -42,7 +42,7 @@ class GiasuController extends BaseController
         
         $r->merge( ['password' => app('hash')->make($r->password) ]);
         
-        User::create([
+        $user = User::create([
             'username' => $r->username,
             // 'username' => $r['username'],
             'password' => $r->password,
@@ -53,6 +53,22 @@ class GiasuController extends BaseController
             // 'email' => $r['email'],
             'role' => $r->role
             // 'role' => $r['role']
+        ]);
+
+        //tao profile
+        $giasu = Giasu::create([
+            'ngaysinh' => $r->ngaysinh, 
+            'gioitinh' => $r->gioitinh, 
+            'socmnd' => $r->socmnd, 
+            'anhcmnd' => 'cmnd.jpg',
+            'diachicutru' => $r->diachicutru, 
+            'sodienthoai' => $r->sodienthoai,
+            'user_id' => $user->id,
+            'anhdaidien' => 'avatar.png',
+            'trinhdo_id' => 1,
+            'anhbangcap' => 'bangcap.jpg',
+            'status' => 0
+
         ]);
 
         return  [ 'msg' => 'User Succefully Registered'];

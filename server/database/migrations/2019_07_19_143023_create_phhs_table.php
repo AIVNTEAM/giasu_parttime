@@ -15,7 +15,9 @@ class CreatePhhsTable extends Migration
     {
         Schema::create('phhs', function (Blueprint $table) {
             $table->bigInteger('id')->primary();
-			$table->string('diachi',80);
+            $table->bigInteger('user_id');
+            $table->string('sodienthoai');
+			$table->string('diachi');
 			$table->bigInteger('tinh_id');
 			$table->bigInteger('huyen_id');
 			$table->bigInteger('xa_id');
