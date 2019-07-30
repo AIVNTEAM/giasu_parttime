@@ -27,10 +27,16 @@ $router->group(['prefix' => $prefix], function() use ($router) {
     	$router->post('/register', 'GiasuController@dangky');
     });
 
+    $router->group(['prefix' => 'viec'], function() use ($router){
+    	$router->post('/dangviec', 'ViecController@dangviec');
+    });
+
+
     $router->get('tinh', 'DiachiController@getAllTinh');
     $router->get('huyen/{id}', 'DiachiController@getHuyentheoTinh');
     $router->get('xa/{id}', 'DiachiController@getXatheoHuyen');
     $router->get('monhoc', 'MonhocController@getAllMonhoc');
+    $router->get('lophoc', 'LopController@getAllLops');
 });
 
 $router->group([ 'middleware' => 'jwt.auth', 'prefix' => $prefix.'/auth' ],function() use ($router) {

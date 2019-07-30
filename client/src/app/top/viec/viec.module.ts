@@ -4,7 +4,7 @@ import {FormsModule} from "@angular/forms";
 import { ViecRoutingModule } from './viec-routing.module';
 import { DangviecComponent } from './dangviec/dangviec.component';
 import { ViecService } from './viec.service';
-import { DiachiService } from '../../shared/diachi.service';
+import { CommonService } from '../../shared/common.service';
 
 @NgModule({
   declarations: [DangviecComponent],
@@ -15,7 +15,7 @@ import { DiachiService } from '../../shared/diachi.service';
   ],
   providers: [
   	ViecService,
-  	DiachiService
+  	CommonService
   ]
 })
 export class CViecModule { }
