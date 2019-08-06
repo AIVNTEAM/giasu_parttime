@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppService } from "../../../shared/app.service";
+import { CommonService } from "../../../shared/common.service";
 import {constant} from "../../../shared/constant";
 
 @Component({
@@ -10,22 +11,23 @@ import {constant} from "../../../shared/constant";
 })
 export class SearchSectionComponent implements OnInit {
 
-  private data = {'key_word': '', 'huyen_id': '', 'hinhthuc_id': '', 'caphoc_id': '', 'monhoc_id': ''};
+  private data = {'key_word': '', 'huyen_id': '', 'lop_id': '', 'monhoc_id': ''};
 
   private dsmh;
-  private dsch;
-  private dskv;
+  private dslh;
+  private dshuyen;
   private dsht = [{"id": 1, "hinhthuc": "Hoc tai nha"},
   {"id": 2, "hinhthuc": "Hoc truc tuyen"}];
-
+  
   constructor(private router: Router,
         private route: ActivatedRoute,
-        private appService: AppService) { }
+        private appService: AppService,
+        private commonService: CommonService) { }
 
   ngOnInit() {
     this.laydsmh();
-    this.laydsch();
-    this.laydskv();
+    this.laydshuyen();
+    this.laydslh();
   }
 
   searchCongviec(){
@@ -36,8 +38,7 @@ export class SearchSectionComponent implements OnInit {
             params = this.appService.resetParams(params);
             params.key_word = this.data['key_word'];
             params.huyen_id = this.data['huyen_id'];
-            params.hinhthuc_id = this.data['hinhthuc_id'];
-            params.caphoc_id = this.data['caphoc_id'];
+            params.lop_id = this.data['lop_id'];
             params.monhoc_id = this.data['monhoc_id'];
             // if(this.appService.checkParamsExist(params))
             // {
@@ -51,6 +52,8 @@ export class SearchSectionComponent implements OnInit {
 
             //co URL thi chuyen qua component search
             this.router.navigate(['/search'+url]);
+
+
         }
   }
 
@@ -65,29 +68,44 @@ export class SearchSectionComponent implements OnInit {
     }
 
   laydsmh(){
-    this.appService.get('monhoc').subscribe((res:any) => {
-      // console.log(res.data);
-      // if (res.status == 200){
-      this.dsmh = res.data;
-        // console.log(this.dsmh);
-      // }
-    })
+    // this.appService.get('monhoc').subscribe((res:any) => {
+    //   // console.log(res.data);
+    //   // if (res.status == 200){
+    //   this.dsmh = res.data;
+    //     // console.log(this.dsmh);
+    //   // }
+    // })
+    this.commonService.getAllMonhocs().subscribe(
+      res => {
+        this.dsmh = res.data;
+      }
+    )
   }
 
-  laydsch(){
-    this.appService.get('caphoc').subscribe((res:any) => {
-      // if (res.status == 200){
-        this.dsch = res.data;
-      // }
-    })
+  laydslh(){
+    // this.appService.get('caphoc').subscribe((res:any) => {
+    //   // if (res.status == 200){
+    //     this.dsch = res.data;
+    //   // }
+    // })
+    this.commonService.getAllLophocs().subscribe(
+      res => {
+        this.dslh = res.data;
+      }
+    )
   }
 
-  laydskv(){
-    this.appService.get('khuvuc').subscribe((res:any) => {
-      // if (res.status == 200){
-        this.dskv = res.data;
-      // }
-    })
+  laydshuyen(){
+    // this.appService.get('khuvuc').subscribe((res:any) => {
+    //   // if (res.status == 200){
+    //     this.dskv = res.data;
+    //   // }
+    // })
+    this.commonService.getHuyentheoTinh(51).subscribe(
+      res => {
+        this.dshuyen = res.data;
+      }
+    )
   }
 
 }

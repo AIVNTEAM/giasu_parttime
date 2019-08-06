@@ -5,7 +5,7 @@ import {constant} from "../../shared/constant";
 @Injectable({
   providedIn: 'root'
 })
-export class ViecService {
+export class TViecService {
   private _url = constant.BASE_URL + "api/viec/dangviec";
   private _monhocUrl = constant.BASE_URL + "api/monhoc/";
   constructor(private http: HttpClient) { }

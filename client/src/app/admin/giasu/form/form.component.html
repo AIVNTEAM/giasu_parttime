@@ -1,0 +1,40 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]='["/admin"]'>Dashboard</a></li>
+    <li class="breadcrumb-item"><a [routerLink]='["/admin/giasu-a/"]'>Gia sư</a></li>   
+    <li *ngIf="isNew" class="breadcrumb-item active" aria-current="page">Tạo mới</li>
+    <li *ngIf="!isNew" class="breadcrumb-item active" aria-current="page">Cập nhật</li>
+  </ol>
+</nav>
+
+<div class="row">
+    <div class="col-lg-12">
+
+        <form role="form" (ngSubmit)="saveData(true)">
+            <fieldset class="form-group" *ngIf="!isNew">
+                <label>NO</label>
+                <div class="col-md-10 padding-no-id" *ngIf="data.id">
+                    {{data.id}}
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="">Trạng thái</label>
+                <select class="form-control input-underline input-lg" id="" [(ngModel)]="data.user.status" name="status">
+                    <option *ngFor="let trangthai of listActive | keyvalue" [value]="trangthai.key" [selected]="trangthai.key==data.active">{{trangthai.value}}</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+              <div class="row">
+                <div class="col-md-12">
+                   <a class="btn btn-default" [routerLink]='["/admin/giasu-a"]' type="button">Cancel</a>
+                  <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Submit</button>
+                </div>
+              </div>
+            </div>
+        </form>
+
+    </div>
+    
+</div>

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {FormsModule} from "@angular/forms";
 import { GiasuRoutingModule } from './giasu-routing.module';
 import { DangkyComponent } from './dangky/dangky.component';
-import { GiasuService} from './giasu.service';
+import { TGiasuService} from './giasu.service';
 @NgModule({
   declarations: [DangkyComponent],
   imports: [
@@ -12,7 +12,7 @@ import { GiasuService} from './giasu.service';
     FormsModule
   ],
   providers: [
-  	GiasuService
+  	TGiasuService
   ]
 })
 export class GiasuModule { }

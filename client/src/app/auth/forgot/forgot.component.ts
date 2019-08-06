@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AppService } from "../../shared/app.service";
-import {flash} from "../../shared/flash/flash";
+// import {flash} from "../../shared/flash/flash";
 import { routerTransition } from '../../router.animations';
 
 @Component({
@@ -23,9 +23,9 @@ export class ForgotComponent implements OnInit {
   onSubmit(email){
     this.appService.post('users/resetPassword', {email: email}).then(response => {
       if(response.status == 200) {
-        flash.success(this.appService.trans('The new password will be sent to your email'),true);
+        // flash.success(this.appService.trans('The new password will be sent to your email'),true);
       } else if(response.status == 404) {
-        flash.error(this.appService.trans('Email does not exist on system'),true);
+        // flash.error(this.appService.trans('Email does not exist on system'),true);
       }
     });
   }

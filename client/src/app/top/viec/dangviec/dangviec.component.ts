@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ViecService } from '../viec.service';
+import { TViecService } from '../viec.service';
 import {Router} from "@angular/router";
 import { CommonService } from '../../../shared/common.service';
 @Component({
@@ -14,7 +14,7 @@ export class DangviecComponent implements OnInit {
   dsLop;
   dsMonhoc;
 	formData = {};
-  constructor(	private viecservice: ViecService,
+  constructor(	private viecservice: TViecService,
             private commonService: CommonService,
         		private router: Router) { }
 

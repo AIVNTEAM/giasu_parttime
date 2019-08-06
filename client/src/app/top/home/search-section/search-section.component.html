@@ -16,19 +16,15 @@
 						<form action="/search" method="POST" (ngSubmit)="searchCongviec()">
 							<select [(ngModel)]="data.monhoc_id" name="monhoc_id" class="form-item form-item-3x no-border">
 								<option value="">Môn học (all)</option>
-								<option *ngFor="let mh of dsmh" value="{{mh.id}}">{{mh.monhoc}}</option>
+								<option *ngFor="let mh of dsmh" value="{{mh.id}}">{{mh.tenmonhoc}}</option>
 							</select>
 							<select [(ngModel)]="data.huyen_id" name="huyen_id" class="form-item form-item-3x no-border">
 								<option value="">Khu vực (all)</option>
-								<option *ngFor="let kv of dskv" value="{{kv.id}}">{{kv.khuvuc}}</option>
+								<option *ngFor="let kv of dshuyen" value="{{kv.id}}">{{kv.tenhuyen}}</option>
 							</select>
-							<select [(ngModel)]="data.hinhthuc_id" name="hinhthuc_id" class="form-item form-item-3x no-border">
-								<option value="">Hình thức (all)</option>
-								<option *ngFor="let ht of dsht" value="{{ht.id}}">{{ht.hinhthuc}}</option>
-							</select>
-							<select [(ngModel)]="data.caphoc_id" name="caphoc_id" class="form-item form-item-3x no-border">
-								<option value="">Cấp học (all)</option>
-								<option *ngFor="let ch of dsch" value="{{ch.id}}">{{ch.caphoc}}</option>
+							<select [(ngModel)]="data.lop_id" name="lop_id" class="form-item form-item-3x no-border">
+								<option selected value="">Lớp học (all)</option>
+								<option *ngFor="let ch of dslh" value="{{ch.id}}">{{ch.tenlop}}</option>
 							</select>
 							<input type="search" class="form-item form-item-3x no-border" placeholder="Keywords" [(ngModel)]="data.key_word" name="name">
 							<div class="form-group m-b-0"><button type="submit" class="ht-btn ht-btn-3x bg-1 w-full text-center m-t-5">Tìm</button></div>

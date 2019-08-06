@@ -1,0 +1,25 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]='["/admin"]'>Dashboard</a></li>
+    <li class="breadcrumb-item active">Danh sách Môn học</li>
+  </ol>
+</nav>
+
+<table class="card-body table table-hover">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Tên môn học</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let monhoc of monhocs; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td><a [routerLink]='["/admin/monhoc/form",monhoc.id]'>{{monhoc.tenmonhoc}}</a></td>
+        
+        <td><a [routerLink]='["/admin/monhoc/form",monhoc.id]'>Sửa</a></td>
+    </tr>
+    
+    </tbody>
+</table>

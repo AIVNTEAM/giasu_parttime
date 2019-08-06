@@ -1,0 +1,31 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]='["/admin"]'>Dashboard</a></li>
+    <li class="breadcrumb-item active">Danh sách gia sư</li>
+  </ol>
+</nav>
+
+<table class="card-body table table-hover">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Họ tên</th>
+        <th>Số điện thoại</th>
+        <th>Trạng thái</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let giasu of giasus; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{giasu.user.name}}</td>
+        <td>{{giasu.sodienthoai}}</td>
+        <td>{{giasu.user.status}}</td>        
+        <td>
+            <a [routerLink]='["/admin/giasu-a/",giasu.id]'>Xem</a>&nbsp;
+            <a [routerLink]='["/admin/giasu-a/form",giasu.id]'>Active</a>
+        </td>
+    </tr>
+    
+    </tbody>
+</table>

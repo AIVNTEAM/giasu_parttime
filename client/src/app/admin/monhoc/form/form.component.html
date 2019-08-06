@@ -1,0 +1,43 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]='["/admin"]'>Dashboard</a></li>
+    <li class="breadcrumb-item"><a [routerLink]='["/admin/monhoc/"]'>Môn học</a></li>   
+    <li *ngIf="isNew" class="breadcrumb-item active" aria-current="page">Tạo môn học</li>
+    <li *ngIf="!isNew" class="breadcrumb-item active" aria-current="page">Sửa môn học</li>
+  </ol>
+</nav>
+
+<div class="row">
+    <div class="col-lg-12">
+
+        <form role="form" (ngSubmit)="saveData(true)">
+            <fieldset class="form-group" *ngIf="!isNew">
+                <label>NO</label>
+                <div class="col-md-10 padding-no-id" *ngIf="data.id">
+                    {{data.id}}
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label>Tên môn học</label>
+                <input class="form-control" [(ngModel)]="data.tenmonhoc" name="tenmonhoc" id="tenmonhoc" placeholder="Tiêu môn học">
+            </fieldset>
+            
+             <fieldset class="form-group">
+                <label>Ghi chu'</label>
+                <input class="form-control" [(ngModel)]="data.ghichu" name="ghichu" id="ghichu" placeholder="Ghi chu'">
+            </fieldset>
+
+            <div class="form-actions">
+              <div class="row">
+                <div class="col-md-12">
+                   <a class="btn btn-default" [routerLink]='["/admin/monhoc"]' type="button">Cancel</a>
+                  <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Submit</button>
+                </div>
+              </div>
+            </div>
+        </form>
+
+    </div>
+    
+</div>

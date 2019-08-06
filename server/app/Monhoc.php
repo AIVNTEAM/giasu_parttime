@@ -17,6 +17,7 @@ class Monhoc extends Model implements AuthenticatableContract, AuthorizableContr
      *
      * @var array
      */
+    public $timestamps = false;
     protected $fillable = [
         'tenmonhoc', 'ghichu'
     ];

@@ -17,6 +17,7 @@ class Lop extends Model implements AuthenticatableContract, AuthorizableContract
      *
      * @var array
      */
+    public $timestamps = false;
     protected $fillable = [
         'tenlop'
     ];

@@ -5,7 +5,7 @@ import {constant} from "../../shared/constant";
 @Injectable({
   providedIn: 'root'
 })
-export class GiasuService {
+export class TGiasuService {
 
   
   private _registerUrl = constant.BASE_URL + "api/giasu/register";

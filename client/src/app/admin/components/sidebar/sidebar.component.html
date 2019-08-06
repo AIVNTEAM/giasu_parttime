@@ -4,41 +4,18 @@
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;
             <span>{{ 'Dashboard' | translate }}</span>
         </a>
-        <!-- <a [routerLink]="['charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-            <span>{{ 'Charts' | translate }}</span>
-        </a>
-        <a [routerLink]="['tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-table"></i>&nbsp;
-            <span>{{ 'Tables' | translate }}</span>
-        </a>
-        <a [routerLink]="['forms']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-edit"></i>&nbsp;
-            <span>{{ 'Forms' | translate }}</span>
-        </a>
-        <a [routerLink]="['bs-element']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-desktop"></i>&nbsp;
-            <span>{{ 'Bootstrap Element' | translate }}</span>
-        </a>
-        <a [routerLink]="['grid']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-wrench"></i>&nbsp;
-            <span>{{ 'Bootstrap Grid' | translate }}</span>
-        </a>
-        <a [routerLink]="['components']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-th-list"></i>&nbsp;
-            <span>{{ 'Component' | translate }}</span>
-        </a> -->
-        //++CongThanh 31/05/19: dashboard menu item
+        
+        <!-- //++CongThanh 31/05/19: dashboard menu item -->
         <div class="nested-menu">
-            <a class="list-group-item" [routerLink]="['bentimviec']" [routerLinkActive]="['router-link-active']" (click)="addExpandClass('bentimviec')">
+            <a class="list-group-item" [routerLink]="['/admin/giasu-a']" [routerLinkActive]="['router-link-active']" (click)="addExpandClass('giasu-a')">
                 <i class="fa fa-fw fa-wrench"></i>&nbsp;
-                <span>{{ 'Bên tìm việc' | translate }}</span>&nbsp;
+                <span>{{ 'Gia Sư' | translate }}</span>&nbsp;
                 <span class="float-right"><i class="fa fa-plus-square"></i></span>                
             </a>
-            <li class="nested" [class.expand]="showMenu === 'bentimviec'">
+            <li class="nested" [class.expand]="showMenu === 'giasu-a'">
                 <ul class="submenu">
                     <li>
-                        <a [routerLink]="['bentimviec/form']" [routerLinkActive]="['router-link-active']">
+                        <a [routerLink]="['/admin/giasu-a/form']" [routerLinkActive]="['router-link-active']">
                             <i class="fa fa-fw fa-edit"></i>&nbsp;
                             <span>{{ 'Create' | translate }}</span>
                         </a>
@@ -46,42 +23,43 @@
                 </ul>
             </li>
         </div>
+        
         <div class="nested-menu">
-            <a class="list-group-item" [routerLink]="['bentuyendung']" [routerLinkActive]="['router-link-active']" (click)="addExpandClass('bentuyendung')">
-                <i class="fa fa-fw fa-wrench"></i>&nbsp;
-                <span>{{ 'Bên tuyển dụng' | translate }}</span>&nbsp;
-                <span class="float-right"><i class="fa fa-plus-square"></i></span>                
-            </a>
-            <li class="nested" [class.expand]="showMenu === 'bentuyendung'">
-                <ul class="submenu">
-                    <li>
-                        <a [routerLink]="['bentuyendung/form']" [routerLinkActive]="['router-link-active']">
-                            <i class="fa fa-fw fa-edit"></i>&nbsp;
-                            <span>{{ 'Create' | translate }}</span>
-                        </a>
-                    </li>                    
-                </ul>
-            </li>
-        </div>
+           <a class="list-group-item" [routerLink]="['/admin/monhoc']" [routerLinkActive]="['router-link-active']" (click)="addExpandClass('monhoc')">
+               <i class="fa fa-fw fa-wrench"></i>&nbsp;
+               <span>{{ 'Môn học' | translate }}</span>&nbsp;
+               <span class="float-right"><i class="fa fa-plus-square"></i></span>                
+           </a>
+           <li class="nested" [class.expand]="showMenu === 'monhoc'">
+               <ul class="submenu">
+                   <li>
+                       <a [routerLink]="['/admin/monhoc/form']" [routerLinkActive]="['router-link-active']">
+                           <i class="fa fa-fw fa-edit"></i>&nbsp;
+                           <span>{{ 'Tạo mới' | translate }}</span>
+                       </a>
+                   </li>                    
+               </ul>
+           </li>
+       </div>
+       <div class="nested-menu">
+           <a class="list-group-item" [routerLink]="['/admin/lop']" [routerLinkActive]="['router-link-active']" (click)="addExpandClass('lop')">
+               <i class="fa fa-fw fa-wrench"></i>&nbsp;
+               <span>{{ 'Lớp' | translate }}</span>&nbsp;
+               <span class="float-right"><i class="fa fa-plus-square"></i></span>                
+           </a>
+           <li class="nested" [class.expand]="showMenu === 'lop'">
+               <ul class="submenu">
+                   <li>
+                       <a [routerLink]="['/admin/lop/form']" [routerLinkActive]="['router-link-active']">
+                           <i class="fa fa-fw fa-edit"></i>&nbsp;
+                           <span>{{ 'Tạo mới' | translate }}</span>
+                       </a>
+                   </li>                    
+               </ul>
+           </li>
+       </div>
         <div class="nested-menu">
-            <a class="list-group-item" [routerLink]="['danhmucviec']" [routerLinkActive]="['router-link-active']" (click)="addExpandClass('danhmucviec')">
-                <i class="fa fa-fw fa-wrench"></i>&nbsp;
-                <span>{{ 'Danh muc viec' | translate }}</span>&nbsp;
-                <span class="float-right"><i class="fa fa-plus-square"></i></span>                
-            </a>
-            <li class="nested" [class.expand]="showMenu === 'danhmucviec'">
-                <ul class="submenu">
-                    <li>
-                        <a [routerLink]="['danhmucviec/form']" [routerLinkActive]="['router-link-active']">
-                            <i class="fa fa-fw fa-edit"></i>&nbsp;
-                            <span>{{ 'Create' | translate }}</span>
-                        </a>
-                    </li>                    
-                </ul>
-            </li>
-        </div>
-        <div class="nested-menu">
-            <a class="list-group-item" [routerLink]="['viec']" [routerLinkActive]="['router-link-active']" (click)="addExpandClass('viec')">
+            <a class="list-group-item" [routerLink]="['/admin/viec']" [routerLinkActive]="['router-link-active']" (click)="addExpandClass('viec')">
                 <i class="fa fa-fw fa-wrench"></i>&nbsp;
                 <span>{{ 'Công việc' | translate }}</span>&nbsp;
                 <span class="float-right"><i class="fa fa-plus-square"></i></span>                
@@ -89,7 +67,7 @@
             <li class="nested" [class.expand]="showMenu === 'viec'">
                 <ul class="submenu">
                     <li>
-                        <a [routerLink]="['viec/form']" [routerLinkActive]="['router-link-active']">
+                        <a [routerLink]="['/admin/viec/form']" [routerLinkActive]="['router-link-active']">
                             <i class="fa fa-fw fa-edit"></i>&nbsp;
                             <span>{{ 'Create' | translate }}</span>
                         </a>
@@ -129,7 +107,7 @@
                 </ul>
             </li>
         </div>
-        //--CongThanh: 31/05/19 
+        <!-- //--CongThanh: 31/05/19  -->
                 
         <div class="header-fields">
             <a (click)="rltAndLtr()" class="list-group-item">

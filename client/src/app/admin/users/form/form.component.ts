@@ -1,40 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { routerTransition } from '../../../router.animations';
-import { AppService } from "../../../shared/app.service";
-import { ActivatedRoute, Router } from '@angular/router';
-import { constant } from "../../../shared/constant";
-import { config } from "../../../shared/config";
-
-declare var $;
-window["$"] = $;
-window["jQuery"] = $;
+import { UsersService } from '../users.service';
+import { ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css'],
-  animations: [routerTransition()]
+  styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
 
-  private listGroup = constant.User.group;
-  private listActive = constant.Active;
   private isNew = true;  //Cho biet la Add New hay Edit
-  private data = {'id': '', 'group': '', 'active': 1}; 
+  private data = {'id': '', 'role': 1}; 
+  listActive = { 1 : "Active", 0 : "Deactive"};
 
   constructor( 
-  	private appService: AppService,
+    private usersService: UsersService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
-  	this.route.params.subscribe((params)=>
-    {
+    //neu kiem tra thay co ID thi lay thong tin cu de load len
+    this.route.params.subscribe((params)=> {
       if(params['id'])
       {
         this.isNew = false;
-        this.appService.get('users/detail', {id: +params['id']}).subscribe((res:any) =>
+        this.usersService.get(params['id']).subscribe((res:any) =>
         {
           console.log(res.data);
           // if(res.status == 200)
@@ -48,34 +39,24 @@ export class FormComponent implements OnInit {
 
   saveData(confirm)
   {
-    // return;
-    confirm = false;
-    this.data['form_confirm'] = confirm;
-
-    this.appService.post('users/save', this.data, []).then(res =>
-    {
-      //console.log(this.data); return;
-      // if(res.status == 200)
-      // {
-        
-        if(JSON.parse(config.get('CURRENT_USER')).id == this.data.id && this.data.active == 0)
-        {
-          config.del('AUTH_TOKEN');
-          config.del('CURRENT_USER');
-          this.router.navigate(['/login']);
-        }else{
-         this.router.navigate(['/admin/users']);
-          }
-        
-      // }
-    });
+    console.log(this.data);
+    if (this.data['id']){  //update
+      this.usersService.update(this.data).subscribe(
+        res => {
+          console.log(res)       
+        },
+        error => console.log(error)
+      );
+    } else {  //create
+      this.usersService.create(this.data).subscribe(
+        res => {
+          console.log(res)       
+        },
+        error => console.log(error)
+      );
+    }
+      
+    this.router.navigate(['/admin/users']);
   }
-
-  // test(){
-  //   // alert("test jquery");
-  //   $('#dada').hide();
-  //   jQuery.noConflict();
-  //   $('#formConfirm').modal('show');
-  // }
 
 }

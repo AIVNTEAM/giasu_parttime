@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {GiasuService} from '../giasu.service';
+import {TGiasuService} from '../giasu.service';
 import {Router} from "@angular/router";
 
 @Component({
@@ -15,7 +15,7 @@ export class DangkyComponent implements OnInit {
   // profileData = {};
   
   constructor(
-  		private gs: GiasuService,
+  		private gs: TGiasuService,
         private router: Router
    ) { }
 

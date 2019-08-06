@@ -1,0 +1,25 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]='["/admin"]'>Dashboard</a></li>
+    <li class="breadcrumb-item active">Danh sách Lớp</li>
+  </ol>
+</nav>
+
+<table class="card-body table table-hover">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Tên lớp</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let lop of lops; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td><a [routerLink]='["/admin/lop/form",lop.id]'>{{lop.tenlop}}</a></td>
+        
+        <td><a [routerLink]='["/admin/lop/form",lop.id]'>Sửa</a></td>
+    </tr>
+    
+    </tbody>
+</table>

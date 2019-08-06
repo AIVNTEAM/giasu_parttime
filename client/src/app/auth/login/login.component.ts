@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../shared/auth.service";
 import {Router} from "@angular/router";
 import {config} from "../../shared/config";
-import {flash} from "../../shared/flash/flash";
+// import {flash} from "../../shared/flash/flash";
 import { routerTransition } from '../../router.animations';
 
 

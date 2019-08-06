@@ -1,44 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { routerTransition } from '../../../router.animations';
-import { AppService } from "../../../shared/app.service";
-import { ActivatedRoute, Router } from '@angular/router';
-import { constant } from "../../../shared/constant";
-import { config } from "../../../shared/config";
-
-declare var $;
-window["$"] = $;
-window["jQuery"] = $;
+import { ViecService } from '../viec.service';
+import { CommonService } from '../../../shared/common.service';
+import { ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css'],
-  animations: [routerTransition()]
+  styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-
-  private listGroup = constant.User.group;
-  private listActive = constant.Active;
-  private listHinhthuc = constant.Loai_CV;
-  private listDanhmucviec;
-  private listCaphoc = constant.Caphoc;
-  private isNew = true;  //Cho biet la Add New hay Edit
-  private data = {'id': '', 'group': '', 'active': 1}; 
+  dsXa;
+  dsHuyen;
+  dsTinh;
+  dsLop;
+  dsMonhoc;
+  isNew = true;  //Cho biet la Add New hay Edit
+  data = {}; 
+  listActive = { 1 : "Active", 0 : "Deactive"};
 
   constructor( 
-  	private appService: AppService,
+  	private viecService: ViecService,
+    private commonService: CommonService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
-    // this.getDanhmuc();
-  	this.route.params.subscribe((params)=>
-    {
+    //neu kiem tra thay co ID thi lay thong tin cu de load len
+    this.route.params.subscribe((params)=> {
       if(params['id'])
       {
         this.isNew = false;
-        this.appService.get('users/detail', {id: +params['id']}).subscribe((res:any) =>
+        this.viecService.get(params['id']).subscribe((res:any) =>
         {
           console.log(res.data);
           // if(res.status == 200)
@@ -48,52 +41,69 @@ export class FormComponent implements OnInit {
        });
       }
     });
-  }
 
-  //hinhthuc = 1: lay danh muc gia su (vd Toan - Ly - Hoa)
-  //hinhthuc = 2: lay danh muc cho part time (vd Nhan vien cafe, Nhan vien quan bar...)
-  getDanhmuc(hinhthuc){
-    this.appService.get('danhmucviec', {hinhthuc_id: hinhthuc}).subscribe((res:any) => {
-      //if (res.status == 200) {
-        // console.log(res);
-        // this.data = res.data;
-         this.listDanhmucviec = res.data.data;
-        // this.numberOfData = this.data.length;
+    this.commonService.getAllTinhs().subscribe(
+      res => {
+        console.log(res);
+        this.dsTinh = res.data;
+      }
+    );
 
-      //}
-    });
+    this.commonService.getAllLophocs().subscribe(
+      res=> {
+        console.log(res);
+        this.dsLop = res.data;
+      });
+    // this.dsHuyen = this.diachiService.getHuyentheoTinh();
+    // this.dsXa = this.diachiService.getXatheoHuyen();
+    this.commonService.getAllMonhocs().subscribe(
+      res => {
+        console.log(res);
+        this.dsMonhoc = res.data;
+      }
+    );
   }
 
   saveData(confirm)
   {
-    // return;
-    confirm = false;
-    this.data['form_confirm'] = confirm;
-
-    this.appService.post('users/save', this.data, []).then(res =>
-    {
-      //console.log(this.data); return;
-      // if(res.status == 200)
-      // {
-        
-        if(JSON.parse(config.get('CURRENT_USER')).id == this.data.id && this.data.active == 0)
-        {
-          config.del('AUTH_TOKEN');
-          config.del('CURRENT_USER');
-          this.router.navigate(['/login']);
-        }else{
-         this.router.navigate(['/admin/users']);
-          }
-        
-      // }
-    });
+    console.log(this.data);
+    if (this.data['id']){  //update
+      this.viecService.update(this.data).subscribe(
+        res => {
+          console.log(res)       
+        },
+        error => console.log(error)
+      );
+    } else {  //create
+      this.viecService.create(this.data).subscribe(
+        res => {
+          console.log(res)       
+        },
+        error => console.log(error)
+      );
+    }
+      
+    this.router.navigate(['/admin/viec']);
   }
 
-  // test(){
-  //   // alert("test jquery");
-  //   $('#dada').hide();
-  //   jQuery.noConflict();
-  //   $('#formConfirm').modal('show');
-  // }
+  loadHuyen(tinh_id){
+      console.log(tinh_id);
+      this.commonService.getHuyentheoTinh(tinh_id).subscribe(
+      (res:any) => {
+        console.log(res);
+        this.dsHuyen = res.data;
+      }
+    );
+  }
+
+  loadXa(huyen_id){
+    console.log(huyen_id);
+    this.commonService.getXatheoHuyen(huyen_id).subscribe(
+      (res:any) => {
+        console.log(res);
+        this.dsXa = res.data;
+      }
+    );
+  }
 
 }
