@@ -24,7 +24,9 @@ export class MonhocService {
   }
 
   update(data){
-    return this.http.put<any>(this._putUrl, data);
+    //vi put khong the chuyen du lieu FormData -> chuyen thanh POST
+    // return this.http.put<any>(this._putUrl, data);
+    return this.http.post<any>(this._putUrl, data);
   }
 
   get(id){

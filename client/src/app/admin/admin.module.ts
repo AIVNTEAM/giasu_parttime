@@ -10,6 +10,10 @@ import { HeaderComponent } from './components/header/header.component';
 
 import {AuthGuard} from "../shared/guards/auth-guard";
 
+import { LoaderService } from "./../shared/loader.service";
+import {LoaderInterceptor} from "./../shared/loader-interceptor";
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -19,7 +23,12 @@ import {AuthGuard} from "../shared/guards/auth-guard";
     ],
     declarations: [AdminComponent, SidebarComponent, HeaderComponent],
     providers: [
-    	AuthGuard
+    	AuthGuard,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: LoaderInterceptor,
+            multi: true
+        }
     ]
 })
 export class AdminModule {}

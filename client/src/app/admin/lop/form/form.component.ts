@@ -39,7 +39,7 @@ export class FormComponent implements OnInit {
   saveData(confirm)
   {
     console.log(this.data);
-    if (this.data['id']){  //update
+    if (!this.isNew){  //update
       this.lopService.update(this.data).subscribe(
         res => {
           console.log(res)       

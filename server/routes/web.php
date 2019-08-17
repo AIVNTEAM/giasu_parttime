@@ -54,7 +54,9 @@ $router->group(['prefix' => $prefix], function() use ($router) {
     		$router->get('/', 'MonhocController@list');
             $router->get('/{id}', 'MonhocController@detail');
             $router->post('/save', 'MonhocController@save');
-            $router->put('/update', 'MonhocController@update');
+            //dung voi FormData nen khong dung put duoc
+            // $router->put('/update', 'MonhocController@update');
+            $router->post('/update', 'MonhocController@update');
             $router->delete('/{id}', 'MonhocController@delete');
     	});
 

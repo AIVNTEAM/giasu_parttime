@@ -23,6 +23,11 @@
                 <input class="form-control" [(ngModel)]="data.tenmonhoc" name="tenmonhoc" id="tenmonhoc" placeholder="Tiêu môn học">
             </fieldset>
             
+            <fieldset class="form-group">
+                <label>Ảnh đại diện</label>
+                <input type="file" (change)="onFileChanged($event)">
+            </fieldset>
+
              <fieldset class="form-group">
                 <label>Ghi chu'</label>
                 <input class="form-control" [(ngModel)]="data.ghichu" name="ghichu" id="ghichu" placeholder="Ghi chu'">

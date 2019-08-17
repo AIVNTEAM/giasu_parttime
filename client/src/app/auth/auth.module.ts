@@ -11,7 +11,9 @@ import {LogoutComponent} from "./logout.component";
 import {SharedModule} from "../shared/shared.module";
 import { TranslateModule } from '@ngx-translate/core';
 import { AuthService } from "./../shared/auth.service";
-
+import { LoaderService } from "./../shared/loader.service";
+import {LoaderInterceptor} from "./../shared/loader-interceptor";
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 @NgModule({
   imports: [
     CommonModule,
@@ -25,6 +27,10 @@ import { AuthService } from "./../shared/auth.service";
       LoginComponent, LogoutComponent, LockedComponent,
       RegisterComponent, ForgotComponent, AuthComponent
   ],
-  providers : [AuthService]
+  providers : [AuthService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoaderInterceptor,
+    multi: true
+  }]
 })
 export class AuthModule { }

@@ -6,6 +6,7 @@ import {config} from "../../shared/config";
 // import {flash} from "../../shared/flash/flash";
 import { routerTransition } from '../../router.animations';
 
+import {LoaderService} from "../../shared/loader.service";
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit
     (
         // private appService: AppService,
         private auth: AuthService,
-        private router: Router
+        private router: Router,
+        public loaderService: LoaderService
     ) {}
 
     formData = {username:'',password:''};

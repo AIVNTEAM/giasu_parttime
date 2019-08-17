@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MonhocService } from '../monhoc.service';
 import { ActivatedRoute, Router} from "@angular/router";
+import { constant } from '../../../shared/constant';
 
 @Component({
   selector: 'app-list',
@@ -9,6 +10,7 @@ import { ActivatedRoute, Router} from "@angular/router";
 })
 export class ListComponent implements OnInit {
 
+  path = constant.BASE_URL;
   monhocs = [];
   
   constructor(private monhocService: MonhocService,

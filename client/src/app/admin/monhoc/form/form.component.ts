@@ -12,6 +12,7 @@ export class FormComponent implements OnInit {
 
   private isNew = true;  //Cho biet la Add New hay Edit
   private data = {'id': '', 'tenmonhoc': ''}; 
+  private selectedFile: File
 
   constructor( 
   	private monhocService: MonhocService,
@@ -36,18 +37,29 @@ export class FormComponent implements OnInit {
     });
   }
 
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0]
+  }
+
   saveData(confirm)
   {
-    console.log(this.data);
-    if (this.data['id']){  //update
-      this.monhocService.update(this.data).subscribe(
+    const formData = new FormData();
+    formData.append('file', this.selectedFile);
+    formData.append('data', JSON.stringify(this.data));
+    console.log("FORM DATA: " + formData);
+    if (!this.isNew){  //update
+      console.log("update monhoc: " + this.data);
+      // this.monhocService.update(this.data).subscribe(
+      this.monhocService.update(formData).subscribe(
         res => {
           console.log(res)       
         },
         error => console.log(error)
       );
     } else {  //create
-      this.monhocService.create(this.data).subscribe(
+      console.log("addnew monhoc: " + this.data);
+      // this.monhocService.create(this.data).subscribe(
+      this.monhocService.create(formData).subscribe(
         res => {
           console.log(res)       
         },

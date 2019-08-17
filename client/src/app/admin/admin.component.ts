@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {LoaderService} from "../shared/loader.service";
 @Component({
     selector: 'admin-layout',
     templateUrl: './admin.component.html',
@@ -13,7 +13,8 @@ export class AdminComponent implements OnInit {
 
     collapedSideBar: boolean;
 
-    constructor() {}
+    constructor(
+        public loaderService: LoaderService) {}
 
     ngOnInit() {}
 

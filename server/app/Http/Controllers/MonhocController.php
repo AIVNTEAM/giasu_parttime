@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\File;
 use App\Monhoc;
 
 class MonhocController extends Controller
@@ -50,13 +51,32 @@ class MonhocController extends Controller
     public function save(Request $request)
     {
         try {
-            $tenmonhoc = $request->input('tenmonhoc');
-            $ghichu = $request->input('ghichu');
+            $tenanh = '';
+            //xu ly thong tin upload - luu vao vi tri chi dinh
+            if ($request->has('file')){
+              $file = $request->file('file');
+              $picName = $file->getClientOriginalName();
+              $picName = uniqid() . '_' . $picName; //uniqid() for unique file name of image
+              $destinationPath =  'upload' . DIRECTORY_SEPARATOR.'monhoc'.DIRECTORY_SEPARATOR.'avatar'.DIRECTORY_SEPARATOR;
+              // $destinationPath = public_path($path); // upload path
+              File::makeDirectory($destinationPath, 0777, true, true); //thiet lap cho pubic thu muc nay
+              $file->move($destinationPath, $picName); //dua file vao vi tri chi dinh
+              $tenanh = $destinationPath . '/' . $picName;
+            }            
+            
+            //lay thong tin khac
+            $data = json_decode($request->input('data'));
+            // $res['file'] = $file->getClientOriginalName();
+            // $res['data'] = $data;
+            $tenmonhoc = $data->tenmonhoc;
+            $ghichu = $data->ghichu;
            
             $save = Monhoc::create([
                 'tenmonhoc'=> $tenmonhoc,
+                'anhdaidien' => $tenanh,
                 'ghichu' => $ghichu
             ]);
+            $res['tenmonhoc'] = $tenmonhoc;
             $res['success'] = true;
             return response($res, 200);
         } catch (\Illuminate\Database\QueryException $ex) {
@@ -66,15 +86,36 @@ class MonhocController extends Controller
         }
     }
     public function update(Request $req)
-    {
+    {   //lay thong tin khac
+        $data = json_decode($req->input('data'));
         try {
-            $monhoc = Monhoc::find($req->input("id"));
+            $monhoc = Monhoc::find($data->id);
             if ($monhoc) {
-                $monhoc->tenmonhoc = $req->input('tenmonhoc');
-                $monhoc->ghichu = $req->input('ghichu');
-                $monhoc->save();
-                $res['success'] = true;
-                return response($res, 200);
+              //xu ly thong tin upload - luu vao vi tri chi dinh
+              if ($req->has('file')){
+                $file = $req->file('file');
+                $picName = $file->getClientOriginalName();
+                $picName = uniqid() . '_' . $picName; //uniqid() for unique file name of image
+                $destinationPath =  'upload' . DIRECTORY_SEPARATOR.'monhoc'.DIRECTORY_SEPARATOR.'avatar'.DIRECTORY_SEPARATOR;
+                // $destinationPath = public_path($path); // upload path
+                File::makeDirectory($destinationPath, 0777, true, true); //thiet lap cho pubic thu muc nay
+                $file->move($destinationPath, $picName); //dua file vao vi tri chi dinh
+                //xoa file cu
+                if (null !== $monhoc->anhdaidien)
+                  unlink($monhoc->anhdaidien);
+                $monhoc->anhdaidien = $destinationPath . '/' . $picName;
+              }
+           
+            
+              
+
+              $monhoc->tenmonhoc = $data->tenmonhoc;
+              $monhoc->ghichu = $data->ghichu;
+              
+              $monhoc->save();
+              $res['data'] = $data;
+              $res['success'] = true;
+              return response($res, 200);
             } else {
                 $res['success'] = false;
                 $res['message'] = 'Monhoc not found';

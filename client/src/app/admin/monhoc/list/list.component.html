@@ -17,7 +17,9 @@
     <tr *ngFor="let monhoc of monhocs; index as i">
         <th scope="row">{{i+1}}</th>
         <td><a [routerLink]='["/admin/monhoc/form",monhoc.id]'>{{monhoc.tenmonhoc}}</a></td>
-        
+        <td>
+            <img src="{{path + monhoc.anhdaidien}}" width="100px" alt="">
+        </td>
         <td><a [routerLink]='["/admin/monhoc/form",monhoc.id]'>Sửa</a></td>
     </tr>
     

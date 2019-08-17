@@ -11,7 +11,7 @@ import { AppService } from "./shared/app.service";
 // import { AuthService } from "./shared/auth.service";
 import { TokenInterceptorService } from './shared/token-interceptor.service';
 import { LanguageTranslationModule } from './shared/modules/language-translation/language-translation.module'
-
+import {LoaderInterceptor} from "./shared/loader-interceptor";
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +33,12 @@ import { LanguageTranslationModule } from './shared/modules/language-translation
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true
-    }
+    }, 
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoaderInterceptor,
+    multi: true
+  }
   ],
   bootstrap: [AppComponent]
 })

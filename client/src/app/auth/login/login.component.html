@@ -20,7 +20,7 @@
                 <button class="btn rounded-btn" type="submit">{{'Login'| translate}}</button>
                 &nbsp;
                 <a class="btn rounded-btn" [routerLink]="['/auth/register']">Register</a>
-                
+                <div *ngIf="loaderService.showLoader" class="loader"></div>
             </form>
             <div class="row form-group">
                   <label class="col-md-3 control-label"></label>
