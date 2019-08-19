@@ -12,6 +12,8 @@ export class CommonService {
   private _xaUrl = constant.BASE_URL + "api/xa/";
   private _monhocUrl = constant.BASE_URL + "api/monhoc/";
   private _lophocUrl = constant.BASE_URL + "api/lophoc/";
+  private _congviecUrl = constant.BASE_URL + "api/congviec";
+
   constructor(private http: HttpClient) { }
 
   getAllTinhs(){
@@ -32,5 +34,9 @@ export class CommonService {
 
   getAllLophocs(){
     return this.http.get<any>(this._lophocUrl);
+  }
+
+  getCongviectheoLop(id){
+    return this.http.get<any>(this._monhocUrl + id + '/viecs');
   }
 }

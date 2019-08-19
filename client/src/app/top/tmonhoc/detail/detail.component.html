@@ -1,0 +1,16 @@
+<h1>&nbsp;<br><br><br></h1>
+
+<div class="container">
+	<h2>Danh sach' cong viec trong lop nay</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-primary" *ngFor="let cv of data">
+			  <div class="panel-heading">{{cv.tieude}}</div>
+			  <div class="panel-body">
+			    {{cv.noidung}}
+			  </div>
+			  <button>Dang ky CV</button>
+			</div>
+		</div>
+	</div>
+</div>

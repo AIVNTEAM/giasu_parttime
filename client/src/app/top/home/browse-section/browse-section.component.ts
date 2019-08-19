@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router'
+import { CommonService } from "../../../shared/common.service";
+import {constant} from "../../../shared/constant";
 
 @Component({
   selector: 'browse-section',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrowseSectionComponent implements OnInit {
 
-  constructor() { }
+  private path = constant.BASE_URL;	//de load hinh anh
+  private dsmh;
+  constructor(private router: Router,
+        private route: ActivatedRoute,
+        // private appService: AppService,
+        private commonService: CommonService) { }
 
   ngOnInit() {
+  	this.laydsmh();
+  }
+
+  laydsmh(){
+    this.commonService.getAllMonhocs().subscribe(
+      res => {
+        this.dsmh = res.data;
+      }
+    )
+  }
+
+  show_congviec(id){
+  	console.log("cac cong viec cho mon hoc: " + id);
+  	this.router.navigate(['tmonhoc/' + id]);
   }
 
 }

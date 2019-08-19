@@ -34,7 +34,9 @@ $router->group(['prefix' => $prefix], function() use ($router) {
     $router->get('/tinh', 'DiachiController@getAllTinh');
     $router->get('/huyen/{id}', 'DiachiController@getHuyentheoTinh');
     $router->get('/xa/{id}', 'DiachiController@getXatheoHuyen');
+    //2 cai nay group lai sau
     $router->get('/monhoc', 'MonhocController@list');
+    $router->get('/monhoc/{id}/viecs', 'MonhocController@getViecsById');
     $router->get('/lophoc', 'LopController@list');
 
     //admin router

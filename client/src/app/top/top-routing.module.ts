@@ -12,6 +12,8 @@ const routes: Routes = [
             { path: 'search', loadChildren: './search/search.module#SearchModule' },
             { path: 'giasu', loadChildren: './giasu/giasu.module#GiasuModule' },
             { path: 'cviec', loadChildren: './viec/tviec.module#CViecModule' },
+            { path: 'tmonhoc', loadChildren: './tmonhoc/tmonhoc.module#TmonhocModule' },
+            { path: 'tkhuvuc', loadChildren: './tkhuvuc/tkhuvuc.module#TkhuvucModule' },
     	]
 	}
 ];

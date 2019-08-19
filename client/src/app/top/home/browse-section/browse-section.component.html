@@ -21,6 +21,12 @@
 			<p>Chọn vào từng môn học để tìm công việc</p>
 		</div>
 		<div class="row">
+			<div class="col-sm-4 col-md-3" *ngFor="let monhoc of dsmh">
+				<div class="thumb-item" (click)="show_congviec(monhoc.id)">
+					<img src="{{path + monhoc.anhdaidien}}" width="100px" alt="">
+					<h4 class="heading">{{monhoc.tenmonhoc}}<br></h4>
+				</div>
+			</div>
 			<div class="col-sm-4 col-md-3">
 				<div class="thumb-item">
 					<i class="fa fa-line-chart"></i>

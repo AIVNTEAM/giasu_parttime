@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\File;
 use App\Monhoc;
+use App\Viec;
 
 class MonhocController extends Controller
 {
@@ -40,6 +41,19 @@ class MonhocController extends Controller
             $monhoc = Monhoc::find($id);
             $res['success'] = true;
             $res['data'] = $monhoc;
+            return response($res, 200);
+        } catch (\Illuminate\Database\QueryException $ex) {
+            $res['success'] = false;
+            $res['message'] = $ex->getMessage();
+            return response($res, 500);
+        }
+    }
+
+    public function getViecsById($id){
+      try {
+            $viecs = Viec::where('monhoc_id', $id)->get();
+            $res['success'] = true;
+            $res['data'] = $viecs;
             return response($res, 200);
         } catch (\Illuminate\Database\QueryException $ex) {
             $res['success'] = false;
